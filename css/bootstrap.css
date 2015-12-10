@@ -1807,7 +1807,7 @@ pre code {
 }
 @media (min-width: 768px) {
   .moduloIndicadores{
-    height: 400px;
+    height: 415px;
   }
 
   .moduloDescripcion{
@@ -1989,20 +1989,20 @@ pre code {
 }
 @media (min-width: 992px) {
   .moduloIndicadores{
-    height: 600px;
+    height: 605px;
   }
 
   .moduloDescripcion{
     
-    height: 60px;
+    height: 70px;
   }
 
   .moduloGrafico{
-    height: 250px;
+    height: 260px;
   }
 
   .moduloFiltro, .moduloTabla, .moduloDescarga{
-    height: 110px;
+    height: 120px;
   }
 
   .indicadores, .descripcion, .apartadoInteraccion {
@@ -2173,20 +2173,20 @@ pre code {
 @media (min-width: 1200px) {
 
   .moduloIndicadores{
-    height: 600px;
+    height: 605px;
   }
 
   .moduloDescripcion{
 
-    height: 60px;
+    height: 70px;
   }
 
   .moduloGrafico{
-    height: 250px;
+    height: 260px;
   }
 
   .moduloFiltro, .moduloTabla, .moduloDescarga{
-    height: 110px;
+    height: 120px;
   }
 
   .indicadores, .descripcion, .apartadoInteraccion {
