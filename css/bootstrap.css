@@ -1633,11 +1633,11 @@ pre code {
     height: 110px;
   }
 
-  .interaccionMovil{
+  .indicadores, .interaccionMovil{
     display: inline-block;
   }
 
-  .indicadores, .descripcion, .apartadoInteraccion{
+  .descripcion, .apartadoInteraccion{
     display: none;
   }
 
