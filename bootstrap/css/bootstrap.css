@@ -1585,11 +1585,8 @@ pre code {
   overflow-y: scroll;
 }
 .container {
-  padding-right: 15px;
-  padding-left: 15px;
   margin-right: auto;
   margin-left: auto;
-  background-color: gris_claro;
 }
 @media (min-width: 768px) {
   .container {
@@ -1607,8 +1604,6 @@ pre code {
   }
 }
 .container-fluid {
-  padding-right: 15px;
-  padding-left: 15px;
   margin-right: auto;
   margin-left: auto;
 }
@@ -1993,8 +1988,7 @@ pre code {
   }
 
   .moduloDescripcion{
-    
-    height: 70px;
+    height: 100%;
   }
 
   .moduloGrafico{
@@ -2177,8 +2171,7 @@ pre code {
   }
 
   .moduloDescripcion{
-
-    height: 70px;
+    height: 100%;
   }
 
   .moduloGrafico{
@@ -4125,28 +4118,32 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
   max-width: none;
 }
 .nav-tabs {
-  border-bottom: 0.5px solid #ddd;
+  border-bottom: 0.5px solid #e7e7e7;
 }
 .nav-tabs > li {
   float: left;
-  margin-bottom: -3px;
+  margin-bottom: -1px;
 }
 .nav-tabs > li > a {
   margin-right: 2px;
-  line-height: 1.42857143;
+  line-height: 0.7;
   border: 1px solid transparent;
-  border-radius: 10px 10px 0 0;
+  border-radius: 5px 5px 0 0;
+  border-color: #e7e7e7;
+  background-color: #E6E6E6;
 }
 .nav-tabs > li > a:hover {
-  border-color: #eee #eee #ddd;
+  border-color: #e7e7e7 #e7e7e7 #e7e7e7;
+  background-color: #D2D2CE;
 }
+
 .nav-tabs > li.active > a,
 .nav-tabs > li.active > a:hover,
 .nav-tabs > li.active > a:focus {
-  color: #555;
+  color: #fff;
   cursor: default;
-  background-color: #fff;
-  border: 2px solid #ddd;
+  background-color: #5172A0;
+  border: 2px solid #4B6992;
   border-bottom-color: transparent;
 }
 .nav-tabs.nav-justified {
@@ -4385,6 +4382,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
   height: 50px;
   padding: 15px 15px;
   font-size: 18px;
+  font-weight: bold;
   line-height: 20px;
 }
 .navbar-brand:hover,
@@ -4606,12 +4604,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
   border-color: #e7e7e7;
 }
 .navbar-default .navbar-brand {
-  color: #777;
-}
-.navbar-default .navbar-brand:hover,
-.navbar-default .navbar-brand:focus {
-  color: #5e5e5e;
-  background-color: transparent;
+  color: #fff;
 }
 .navbar-default .navbar-text {
   color: #777;
@@ -5558,8 +5551,9 @@ button.list-group-item-danger.active:focus {
 }
 .panel {
   margin-bottom: 20px;
-  background-color: #fff;
-  border: 2px solid transparent;
+  background-color: #f8f8f8;
+  border:1px solid transparent;
+  border-color: #4B6992;
   border-radius: 5px;
   -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, .05);
           box-shadow: 0 1px 1px rgba(0, 0, 0, .05);
@@ -5569,16 +5563,12 @@ button.list-group-item-danger.active:focus {
   background-color: #fff;
 }
 
-.panel-bodyExterno {
-  padding: 15px;
-  background-color: #F3F3F3;
-
-}
 .panel-heading {
-  padding: 10px 15px;
-  border-bottom: 2px solid transparent;
-  border-top-left-radius: 3px;
-  border-top-right-radius: 3px;
+  padding: 7px 15px 3px 15px;
+  border-bottom: 4px solid transparent;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  font-weight: bold;
 
 }
 .panel-heading > .dropdown .dropdown-toggle {
@@ -5804,6 +5794,7 @@ button.list-group-item-danger.active:focus {
 }
 .panel-default {
   border-color: #ddd;
+  background-color: #f8f8f8;
 }
 .panel-default > .panel-heading {
   color: #333;
@@ -5821,23 +5812,24 @@ button.list-group-item-danger.active:focus {
   border-bottom-color: #ddd;
 }
 .panel-primary {
-  border-color: #337ab7;
+  border-color: #e7e7e7;
 }
 .panel-primary > .panel-heading {
   color: #fff;
-  background-color: #337ab7;
-  border-color: #337ab7;
+  background-color: #5172A0;
+  border-color: #4B6992;
 }
 .panel-primary > .panel-heading + .panel-collapse > .panel-body {
-  border-top-color: #337ab7;
+  border-top-color: #4B6992;
 }
 .panel-primary > .panel-heading .badge {
-  color: #337ab7;
+  color: #4B6992;
   background-color: #fff;
 }
 .panel-primary > .panel-footer + .panel-collapse > .panel-body {
-  border-bottom-color: #337ab7;
+  border-bottom-color: #4B6992;
 }
+
 .panel-success {
   border-color: #d6e9c6;
 }
