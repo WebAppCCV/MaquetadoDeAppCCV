@@ -5,7 +5,7 @@
  */
 
 body {
-    background-color: #f8f8f8;
+    background-color: #fff;
 }
 
 #wrapper {
@@ -15,7 +15,7 @@ body {
 #page-wrapper {
     padding: 0 15px;
     min-height: 568px;
-    background-color: #fff;
+   
 }
 
 @media(min-width:768px) {
@@ -29,6 +29,7 @@ body {
 
 .navbar-top-links {
     margin-right: 0;
+
 }
 
 .navbar-top-links li {
@@ -88,6 +89,7 @@ body {
 .sidebar .sidebar-nav.navbar-collapse {
     padding-right: 0;
     padding-left: 0;
+
 }
 
 .sidebar .sidebar-search {
@@ -99,7 +101,7 @@ body {
 }
 
 .sidebar ul li a.active {
-    background-color: #eee;
+    background-color: #E6E6E6;
 }
 
 .sidebar .arrow {
@@ -108,10 +110,13 @@ body {
 
 .sidebar .fa.arrow:before {
     content: "\f104";
+    color:#FFC902;
+    font-weight: bold;
 }
 
 .sidebar .active>a>.fa.arrow:before {
     content: "\f107";
+
 }
 
 .sidebar .nav-second-level li,
