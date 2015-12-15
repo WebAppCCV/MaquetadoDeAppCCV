@@ -14,8 +14,7 @@ body {
 
 #page-wrapper {
     padding: 0 15px;
-    min-height: 568px;
-   
+    min-height: 568px;   
 }
 
 @media(min-width:768px) {
@@ -24,6 +23,7 @@ body {
         margin: 0 0 0 250px;
         padding: 0 30px;
         border-left: 1px solid #e7e7e7;
+        max-height: 510px;
     }
 }
 
@@ -132,18 +132,40 @@ body {
     padding-left: 52px;
 }
 
+
 @media(min-width:768px) {
     .sidebar {
         z-index: 1;
         position: absolute;
         width: 250px;
         margin-top: 51px;
+        max-height: 505px;
+        overflow: auto;
     }
 
     .navbar-top-links .dropdown-messages,
     .navbar-top-links .dropdown-tasks,
     .navbar-top-links .dropdown-alerts {
         margin-left: auto;
+    }
+}
+@media (min-width: 992px) {
+  .sidebar {
+        max-height: 718px;
+        overflow: auto;
+    }
+        #page-wrapper {
+        max-height: 725px;
+    }
+}
+@media (min-width: 1200px) {
+  .sidebar {
+
+        max-height: 698px;
+        overflow: auto;
+    }
+        #page-wrapper {
+        max-height: 705px;
     }
 }
 
