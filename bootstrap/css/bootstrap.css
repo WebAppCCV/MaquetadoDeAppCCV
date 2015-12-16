@@ -1613,23 +1613,15 @@ pre code {
   margin-left: -15px;
 }
 
-  .moduloIndicadores{
-    height: 400px;
-  }
-
-  .moduloDescripcion{
-    height: 110px;
-  }
-
   .moduloGrafico{
-    height: 200px;
+    height: 220px;
   }
 
-  .moduloFiltro, .moduloTabla, .moduloDescarga{
-    height: 110px;
+  .moduloDescripcion, .moduloFiltro, .moduloTabla, .moduloDescarga{
+    height: 100%;
   }
 
-  .indicadores, .interaccionMovil{
+  .interaccionMovil{
     display: inline-block;
   }
 
@@ -1802,23 +1794,17 @@ pre code {
   margin-left: 0;
 }
 @media (min-width: 768px) {
-  .moduloIndicadores{
-    height: 415px;
-  }
-
-  .moduloDescripcion{
-    height: 110px;
-  }
 
   .moduloGrafico{
-    height: 200px;
+    height: 230px;
   }
 
-  .moduloFiltro, .moduloTabla, .moduloDescarga{
-    height: 110px;
+  .moduloDescripcion, .moduloFiltro, .moduloTabla, .moduloDescarga{
+    height: 140px;
+    overflow: auto;
   }
 
-  .indicadores, .interaccionMovil{
+  .interaccionMovil{
     display: inline-block;
   }
 
@@ -1984,23 +1970,22 @@ pre code {
   }
 }
 @media (min-width: 992px) {
-  .moduloIndicadores{
-    height: 605px;
-  }
 
   .moduloDescripcion{
-    height: 100%;
+    height: 60px;
+    overflow: auto;
   }
 
   .moduloGrafico{
-    height: 260px;
+    height: 280px;
   }
 
   .moduloFiltro, .moduloTabla, .moduloDescarga{
     height: 120px;
+    overflow: auto;
   }
 
-  .indicadores, .descripcion, .apartadoInteraccion {
+  .descripcion, .apartadoInteraccion {
     display: inline-block;
   }
 
@@ -2167,23 +2152,21 @@ pre code {
 }
 @media (min-width: 1200px) {
 
-  .moduloIndicadores{
-    height: 605px;
-  }
-
   .moduloDescripcion{
-    height: 100%;
+    height: 55px;
+    overflow: auto;
   }
 
   .moduloGrafico{
-    height: 260px;
+    height: 350px;
   }
 
   .moduloFiltro, .moduloTabla, .moduloDescarga{
     height: 120px;
+    overflow: auto;
   }
 
-  .indicadores, .descripcion, .apartadoInteraccion {
+  .descripcion, .apartadoInteraccion {
     display: inline-block;
   }
 

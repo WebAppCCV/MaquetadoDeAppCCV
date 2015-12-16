@@ -8,22 +8,18 @@ body {
     background-color: #fff;
 }
 
-#wrapper {
-    width: 100%;
-}
-
-#page-wrapper {
-    padding: 0 15px;
-    min-height: 568px;   
+.page-wrapper {
+        padding: 0 10px;
 }
 
 @media(min-width:768px) {
-    #page-wrapper {
+    .page-wrapper {
         position: inherit;
         margin: 0 0 0 250px;
         padding: 0 30px;
         border-left: 1px solid #e7e7e7;
-        max-height: 510px;
+        max-height: 100%;
+
     }
 }
 
@@ -41,8 +37,7 @@ body {
 }
 
 .navbar-top-links li a {
-    padding: 15px;
-    min-height: 50px;
+    padding: auto;
 }
 
 .navbar-top-links .dropdown-menu li {
@@ -139,7 +134,7 @@ body {
         position: absolute;
         width: 250px;
         margin-top: 51px;
-        max-height: 505px;
+        max-height: 555px;
         overflow: auto;
     }
 
@@ -151,22 +146,17 @@ body {
 }
 @media (min-width: 992px) {
   .sidebar {
-        max-height: 718px;
+        max-height: 735px;
         overflow: auto;
-    }
-        #page-wrapper {
-        max-height: 725px;
     }
 }
 @media (min-width: 1200px) {
   .sidebar {
 
-        max-height: 698px;
+        max-height: 800px;
         overflow: auto;
     }
-        #page-wrapper {
-        max-height: 705px;
-    }
+
 }
 
 .btn-outline {
