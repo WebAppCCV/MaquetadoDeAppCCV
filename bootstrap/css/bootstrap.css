@@ -1101,6 +1101,7 @@ textarea {
 a {
   color: #337ab7;
   text-decoration: none;
+  font-size: 14px;
 }
 a:hover,
 a:focus {
@@ -1621,11 +1622,11 @@ pre code {
     height: 100%;
   }
 
-  .interaccionMovil{
+  .interaccionMovil, .slidesMobile{
     display: inline-block;
   }
 
-  .descripcion, .apartadoInteraccion{
+  .descripcion, .apartadoInteraccion, .slideDesktop{
     display: none;
   }
 
@@ -1804,11 +1805,11 @@ pre code {
     overflow: auto;
   }
 
-  .interaccionMovil{
+  .interaccionMovil, .slidesDesktop{
     display: inline-block;
   }
 
-  .descripcion, .apartadoInteraccion{
+  .descripcion, .apartadoInteraccion, .slidesMobile{
     display: none;
   }
 
@@ -1985,11 +1986,11 @@ pre code {
     overflow: auto;
   }
 
-  .descripcion, .apartadoInteraccion {
+  .descripcion, .apartadoInteraccion, .slidesDesktop {
     display: inline-block;
   }
 
-  .interaccionMovil{
+  .interaccionMovil, .slidesMobile{
     display: none;
   }
 
@@ -2166,11 +2167,11 @@ pre code {
     overflow: auto;
   }
 
-  .descripcion, .apartadoInteraccion {
+  .descripcion, .apartadoInteraccion, .slidesDesktop {
     display: inline-block;
   }
 
-  .interaccionMovil{
+  .interaccionMovil, .slidesMobile{
     display: none;
   }
 
@@ -3199,6 +3200,22 @@ fieldset[disabled] .btn-default.focus {
   color: #fff;
   background-color: #333;
 }
+
+
+.btn-navCCV {
+  color: #fff;
+  background-color: #5172A0;
+  border: 0px;
+}
+.btn-navCCV:focus,
+.btn-navCCV.focus,
+.btn-navCCV:hover,
+.btn-navCCV.hover {
+  color: #fff;
+}
+
+
+
 .btn-primary {
   color: #fff;
   background-color: #337ab7;
@@ -4077,11 +4094,16 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
   background-color: #e6e6e6;
 }
 
-.navIcon > li > a:hover,
-.navIcon > li > a:focus {
+.navIcon > li >a:hover{
+  text-decoration: none;
+  background-color: #365989;
+}
+
+.navIcon > li > a:focus{
   text-decoration: none;
   background-color: #003E73;
 }
+
 
 .nav > li.disabled > a {
   color: #777;
@@ -5560,6 +5582,7 @@ button.list-group-item-danger.active:focus {
   border-top-left-radius: 5px;
   border-top-right-radius: 5px;
   font-weight: bold;
+  font-size: 14px;
 
 }
 .panel-heading > .dropdown .dropdown-toggle {
