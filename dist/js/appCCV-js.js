@@ -34,3 +34,14 @@ $(function() {
         element.addClass('active');
     }
 });
+
+var tam=14;
+function aumentar(){
+    tam++;
+    document.body.style.fontSize = tam+"px";
+}
+
+function disminuir(){
+    tam--;
+    document.body.style.fontSize = tam+"px";
+}

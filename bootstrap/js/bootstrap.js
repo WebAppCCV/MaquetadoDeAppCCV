@@ -1839,6 +1839,7 @@ if (typeof jQuery === 'undefined') {
   }
 
 
+
   // POPOVER PLUGIN DEFINITION
   // =========================
 

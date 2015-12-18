@@ -21,24 +21,6 @@
     <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
     <link href="dist/css/IconAppCCV.css" rel="stylesheet" type="text/css">
 
-    <style type="text/css">
-
-</style>
-
-    <script type="text/javascript">
-    var tam=14;
-    function agrandar{
-        tam++;
-        document.body.style.fontSize = tam+"pt";
-    }
-
-    function achicar{
-        tam--;
-        document.body.style.fontSize = tam+"pt";
-    }
-    </script>
-
-
 </head>
 
 <body>
@@ -63,12 +45,12 @@
 
 
             <ul class="nav navIcon navbar-top-links navbar-right">
-                 <li><a href="#" class="btn btn-navCCV" onClick="achicar()"><i class="iconccv-2x icon-Icon_a"></i></a>
+                <li><a  href="#" class="btn btn-navCCV" onClick="disminuir()" rel="popover" data-container="body" data-toggle="popover" data-placement="bottom" title="<i><strong>Disminuir tamaño de fuente</strong></i>" data-content="<i>Con este botón podrás reducir el tamaño de la fuente dentro de la App</i>"><i class="iconccv-2x icon-Icon_a"></i></a>
                 </li>
-                <li><a href="#" class="btn btn-navCCV" onClick="agrandar()"><i class="iconccv-2x icon-Icon_A"></i></a>
+                <li><a  href="#" class="btn btn-navCCV" onClick="aumentar()" rel="popover" data-container="body" data-toggle="popover" data-placement="bottom" title="<i><strong>Aumentar tamaño de fuente</strong></i>" data-content="<i>Con este botón podrás aumentar el tamaño de la fuente dentro de la App</i>"><i class="iconccv-2x icon-Icon_A"></i></a>
                 </li>
                 <span nav-divider></span>
-                <li><a  href="#" class="btn btn-navCCV" data-toggle="modal" data-target="#ventanaAyuda"><i class="iconccv-2x icon-Icon_Help"></i></a>
+                <li><a  href="#" class="btn btn-navCCV" data-toggle="modal" data-target="#ventanaAyuda" rel="popover" data-container="body" data-toggle="popover" data-placement="bottom" title="<i><strong>Ayuda</strong></i>" data-content="<i>Aprende a usar la aplicación mediante el apartado de ayuda</i>"><i class="iconccv-2x icon-Icon_Help"></i></a>
                 </li>
             </ul>
             <!-- /.navbar-top-links -->
@@ -77,12 +59,12 @@
 
             <div class="navbar-default sidebar" role="navigation">
                 <div class="sidebar-nav navbar-collapse">
-                    <ul class="nav" id="side-menu">
+                    <ul class="nav navMenu" id="side-menu">
                         <li class="sidebar-search">
                             <div class="input-group custom-search-form">
                                 <input type="text" class="form-control" placeholder="Buscar indicador">
                                 <span class="input-group-btn">
-                                    <button class="btn btn-default" type="button">
+                                    <button class="btn btn-default" type="button" rel="popover" data-container="body" data-toggle="popover" data-placement="bottom" title="<i><strong>Búscar indicador específico</strong></i>" data-content="<i>Ésta herramienta te permite buscar de manera mas ágil el indicador que deseas consultar</i>">
                                         <i class="iconccv icon-Icon_Search"></i>
                                     </button>
                                 </span>
@@ -94,10 +76,10 @@
                         </li>
                         <li>
                             <a href="#"><i class="iconccv icon-Icon_Education iconccv-fw"></i> Educación<span class="fa arrow iconccv-lg"></span></a>
-                            <ul class="nav nav-second-level">
+                            <ul class="nav navMenu nav-second-level">
                                 <li>
                                     <a href="#">Percepción ciudadana<span class="fa arrow"></span></a>
-                                    <ul class="nav nav-third-level">
+                                    <ul class="nav navMenu nav-third-level">
                                         <li>
                                             <a href="#">Third Level Item</a>
                                         </li>
@@ -115,7 +97,7 @@
                                 </li>
                                 <li>
                                     <a href="#">Calidad de vida<span class="fa arrow"></span></a>
-                                    <ul class="nav nav-third-level">
+                                    <ul class="nav navMenu nav-third-level">
                                         <li>
                                             <a href="#">Third Level Item</a>
                                         </li>
@@ -135,10 +117,10 @@
                             <!-- /.nav-second-level -->
                             <li>
                                 <a href="#"><i class="iconccv icon-Icon_Health iconccv-fw"></i> Salud<span class="fa arrow iconccv-lg"></span></a>
-                                <ul class="nav nav-second-level">
+                                <ul class="nav navMenu nav-second-level">
                                     <li>
                                         <a href="#">Percepción ciudadana<span class="fa arrow"></span></a>
-                                        <ul class="nav nav-third-level">
+                                        <ul class="nav navMenu nav-third-level">
                                             <li>
                                                 <a href="#">Third Level Item</a>
                                             </li>
@@ -156,7 +138,7 @@
                                     </li>
                                     <li>
                                         <a href="#">Calidad de vida<span class="fa arrow"></span></a>
-                                        <ul class="nav nav-third-level">
+                                        <ul class="nav navMenu nav-third-level">
                                             <li>
                                                 <a href="#">Third Level Item</a>
                                             </li>
@@ -177,10 +159,10 @@
                             </li>
                             <li>
                                 <a href="#"><i class="iconccv icon-IconService iconccv-fw"></i> Servicios públicos<span class="fa arrow iconccv-lg"></span></a>
-                                <ul class="nav nav-second-level">
+                                <ul class="nav navMenu nav-second-level">
                                     <li>
                                         <a href="#">Percepción ciudadana<span class="fa arrow"></span></a>
-                                        <ul class="nav nav-third-level">
+                                        <ul class="nav navMenu nav-third-level">
                                             <li>
                                                 <a href="#">Third Level Item</a>
                                             </li>
@@ -198,7 +180,7 @@
                                     </li>
                                     <li>
                                         <a href="#">Calidad de vida<span class="fa arrow"></span></a>
-                                        <ul class="nav nav-third-level">
+                                        <ul class="nav navMenu nav-third-level">
                                             <li>
                                                 <a href="#">Third Level Item</a>
                                             </li>
@@ -219,10 +201,10 @@
                             </li>
                             <li>
                                 <a href="#"><i class="iconccv icon-Icon_Home iconccv-fw"></i> Vivienda<span class="fa arrow iconccv-lg"></span></a>
-                                <ul class="nav nav-second-level">
+                                <ul class="nav navMenu nav-second-level">
                                     <li>
                                         <a href="#">Percepción ciudadana<span class="fa arrow"></span></a>
-                                        <ul class="nav nav-third-level">
+                                        <ul class="nav navMenu nav-third-level">
                                             <li>
                                                 <a href="#">Third Level Item</a>
                                             </li>
@@ -240,7 +222,7 @@
                                     </li>
                                     <li>
                                         <a href="#">Calidad de vida<span class="fa arrow"></span></a>
-                                        <ul class="nav nav-third-level">
+                                        <ul class="nav navMenu nav-third-level">
                                             <li>
                                                 <a href="#">Third Level Item</a>
                                             </li>
@@ -261,10 +243,10 @@
                             </li>
                             <li>
                                 <a href="#"><i class="iconccv icon-Icon_Park iconccv-fw"></i> Espacio público<span class="fa arrow iconccv-lg"></span></a>
-                                <ul class="nav nav-second-level">
+                                <ul class="nav navMenu nav-second-level">
                                     <li>
                                         <a href="#">Percepción ciudadana<span class="fa arrow"></span></a>
-                                        <ul class="nav nav-third-level">
+                                        <ul class="nav navMenu nav-third-level">
                                             <li>
                                                 <a href="#">Third Level Item</a>
                                             </li>
@@ -282,7 +264,7 @@
                                     </li>
                                     <li>
                                         <a href="#">Calidad de vida<span class="fa arrow"></span></a>
-                                        <ul class="nav nav-third-level">
+                                        <ul class="nav navMenu nav-third-level">
                                             <li>
                                                 <a href="#">Third Level Item</a>
                                             </li>
@@ -303,10 +285,10 @@
                             </li>
                             <li>
                                 <a href="#"><i class="iconccv icon-Icon_Forest iconccv-fw"></i> Medio ambiente<span class="fa arrow iconccv-lg"></span></a>
-                                <ul class="nav nav-second-level">
+                                <ul class="nav navMenu nav-second-level">
                                     <li>
                                         <a href="#">Percepción ciudadana<span class="fa arrow"></span></a>
-                                        <ul class="nav nav-third-level">
+                                        <ul class="nav navMenu nav-third-level">
                                             <li>
                                                 <a href="#">Third Level Item</a>
                                             </li>
@@ -324,7 +306,7 @@
                                     </li>
                                     <li>
                                         <a href="#">Calidad de vida<span class="fa arrow"></span></a>
-                                        <ul class="nav nav-third-level">
+                                        <ul class="nav navMenu nav-third-level">
                                             <li>
                                                 <a href="#">Third Level Item</a>
                                             </li>
@@ -345,10 +327,10 @@
                             </li>
                             <li>
                                 <a href="#"><i class="iconccv icon-Icon_Street2 iconccv-fw"></i> Infraestructura vial<span class="fa arrow iconccv-lg"></span></a>
-                                <ul class="nav nav-second-level">
+                                <ul class="nav navMenu nav-second-level">
                                     <li>
                                         <a href="#">Percepción ciudadana<span class="fa arrow"></span></a>
-                                        <ul class="nav nav-third-level">
+                                        <ul class="nav navMenu nav-third-level">
                                             <li>
                                                 <a href="#">Third Level Item</a>
                                             </li>
@@ -366,7 +348,7 @@
                                     </li>
                                     <li>
                                         <a href="#">Calidad de vida<span class="fa arrow"></span></a>
-                                        <ul class="nav nav-third-level">
+                                        <ul class="nav navMenu nav-third-level">
                                             <li>
                                                 <a href="#">Third Level Item</a>
                                             </li>
@@ -387,10 +369,10 @@
                             </li>
                             <li>
                                 <a href="#"><i class="iconccv icon-Icon_Mobility2 iconccv-fw"></i> Movilidad<span class="fa arrow iconccv-lg"></span></a>
-                                <ul class="nav nav-second-level">
+                                <ul class="nav navMenu nav-second-level">
                                     <li>
                                         <a href="#">Percepción ciudadana<span class="fa arrow"></span></a>
-                                        <ul class="nav nav-third-level">
+                                        <ul class="nav navMenu nav-third-level">
                                             <li>
                                                 <a href="#">Third Level Item</a>
                                             </li>
@@ -408,7 +390,7 @@
                                     </li>
                                     <li>
                                         <a href="#">Calidad de vida<span class="fa arrow"></span></a>
-                                        <ul class="nav nav-third-level">
+                                        <ul class="nav navMenu nav-third-level">
                                             <li>
                                                 <a href="#">Third Level Item</a>
                                             </li>
@@ -429,10 +411,10 @@
                             </li>
                             <li>
                                 <a href="#"><i class="iconccv icon-Icon_Security iconccv-fw"></i> Seguridad<span class="fa arrow iconccv-lg"></span></a>
-                                <ul class="nav nav-second-level">
+                                <ul class="nav navMenu nav-second-level">
                                     <li>
                                         <a href="#">Percepción ciudadana<span class="fa arrow"></span></a>
-                                        <ul class="nav nav-third-level">
+                                        <ul class="nav navMenu nav-third-level">
                                             <li>
                                                 <a href="#">Third Level Item</a>
                                             </li>
@@ -450,7 +432,7 @@
                                     </li>
                                     <li>
                                         <a href="#">Calidad de vida<span class="fa arrow"></span></a>
-                                        <ul class="nav nav-third-level">
+                                        <ul class="nav navMenu nav-third-level">
                                             <li>
                                                 <a href="#">Third Level Item</a>
                                             </li>
@@ -471,10 +453,10 @@
                             </li>
                             <li>
                                 <a href="#"><i class="iconccv icon-Icon_Culture iconccv-fw"></i> Cultura<span class="fa arrow iconccv-lg"></span></a>
-                                <ul class="nav nav-second-level">
+                                <ul class="nav navMenu nav-second-level">
                                     <li>
                                         <a href="#">Percepción ciudadana<span class="fa arrow"></span></a>
-                                        <ul class="nav nav-third-level">
+                                        <ul class="nav navMenu nav-third-level">
                                             <li>
                                                 <a href="#">Third Level Item</a>
                                             </li>
@@ -492,7 +474,7 @@
                                     </li>
                                     <li>
                                         <a href="#">Calidad de vida<span class="fa arrow"></span></a>
-                                        <ul class="nav nav-third-level">
+                                        <ul class="nav navMenu nav-third-level">
                                             <li>
                                                 <a href="#">Third Level Item</a>
                                             </li>
@@ -529,8 +511,8 @@
             <div class="page-wrapper">
                 <div class="container-fluid">
                     <div class="row" style="margin: 15px -15px 0px -15px">
-                            <div  class = "descripcion">
-                                <div  class = "col-xs-12">
+                 
+                                <div  class = "col-xs-12 descripcion">
                                     <div class="panel panel-primary">
                                         <div class="panel-heading">
                                           Descripcion
@@ -538,10 +520,10 @@
                                       <div class="panel-body">
                                           <div class="moduloDescripcion">      
                                              <span>
-                                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. At voluptate exercitationem magni placeat officia voluptatibus, deleniti delectus eligendi expedita explicabo rerum, ex excepturi quae aspernatur in. Rerum facere nihil aspernatur?
+                                              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Necessitatibus repellat iste cumque nihil in veniam quo sunt id magni doloribus. Consectetur earum, dolores, illum at laudantium veniam cupiditate sit nemo.
                                             </span> 
                                         </div>
-                                    </div>
+                               
                                 </div>
                             </div>
                         </div>
@@ -553,19 +535,19 @@
                               <div class="panel-body">
                                   <div class="moduloGrafico">
                                     <span>
-                                      Lorem ipsum dolor sit amet, consectetur adipisicing elit. At voluptate exercitationem magni placeat officia voluptatibus, deleniti delectus eligendi expedita explicabo rerum, ex excepturi quae aspernatur in. Rerum facere nihil aspernatur?
+                                      
                                   </span>
                               </div>    
                           </div>
                       </div>
                   </div>
-                  <div  class = "apartadoInteraccion">
-                     <div  class = "col-xs-12"> 
+
+                     <div  class = "col-xs-12 apartadoInteraccion"> 
                         <ul  class = "nav nav-tabs" > 
                             <li class= "active" >
-                              <a  href= "#filtro" data-toggle="tab">Filtro de información</a></li>
-                              <li><a  href= "#tabla" data-toggle="tab">Tabla de datos</a></li> 
-                              <li><a  href= "#descarga" data-toggle="tab">Descarga de datos</a></li>
+                              <a  href= "#filtro" data-toggle="tab" data-toggle="popover" rel="popover" data-container="body" data-placement="top" title="<i><strong>Herramienta de filtrado</strong></i>" data-content="<i>Aquí podras manipular las variables de los datos que brinda el indicador consultado</i>">Filtro de información</a></li>
+                              <li><a  href= "#tabla" data-toggle="tab" data-toggle="popover"rel="popover" data-container="body" data-placement="top" title="<i><strong>Herramienta de tabla</strong></i>" data-content="<i>Aquí podras visualizar los datos del indicador consultado en manera de tabla</i>">Tabla de datos</a></li> 
+                              <li><a  href= "#descarga" data-toggle="tab" data-toggle="popover" rel="popover" data-container="body" data-placement="top" title="<i><strong>Herramienta de descarga</strong></i>" data-content="<i>Aquí podras descargar los datos del indicador consultado</i>">Descarga de datos</a></li>
                           </ul>
 
                           <div class="panel panel-primary">
@@ -573,7 +555,7 @@
                                <div class="tab-content">
                                   <div class="tab-pane fade in active" id="filtro">
                                       <div class="moduloFiltro">
-                                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nostrum temporibus dolor reprehenderit, aliquam ad pariatur quae et labore, obcaecati non enim officiis necessitatibus, deleniti deserunt amet totam neque fuga culpa!
+                                       Lorem ipsum dolor sit amet, consectetur adipisicing elit. Explicabo aliquam omnis labore ipsam laudantium in cum harum error soluta rerum commodi quo, nam dolorum quod recusandae ratione ipsa aspernatur sit!
                                     </div>
                                 </div>
                                 <div class="tab-pane fade" id="tabla">
@@ -594,10 +576,9 @@
             </div>
 
         </div>
-    </div>
 
-    <div  class = "interaccionMovil">
-        <div  class = "col-xs-12">
+
+        <div  class = "col-xs-12 interaccionMovil">
           <ul  class = "nav nav-tabs">
            <li class="active dropdown btn-group"><a class="btn dropdown-toggle" href="#tab-main" data-toggle="dropdown">Herramientas <span class="caret"></span></a>
               <ul class="dropdown-menu">
@@ -641,7 +622,7 @@
 
 
 </div>
-</div>
+
 
 
 
@@ -765,7 +746,16 @@
 <script src="metisMenu/metisMenu.js"></script>
 
 <!-- Custom Theme JavaScript -->
-<script src="dist/js/sb-admin-2.js"></script>
+<script src="dist/js/appCCV-js.js"></script>
+
+<!-- Script para activar por popover = Ayuda contextual -->
+<script>
+$('[rel="popover"]').popover({
+    trigger: 'hover',
+    html: true,
+    delay: 500,
+    });
+</script>
 
 </body>
 
