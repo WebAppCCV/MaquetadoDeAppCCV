@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Prueba</title>
+</head>
+<body>
+	<div class="container">
+		<!--	<form action="">
+			<input type="submit" data-button="add" value="Población y demografía" > 
+		</form>
+		-->
+		<div id="resultados">
+			<span onclick="indicador(this)" id="1. Población y Demografía">Población y Demografía</span>
+			<br>
+			<span onclick="indicador(this)" id="2. Pobreza y desigualdad">Pobreza y desigualdad</span>
+			<br>
+			<span onclick="indicador(this)" id="3. Salud">Salud</span>
+			<br>
+			<span onclick="indicador(this)" id="4. Educación">Educación</span>
+		</div>
+
+
+		<div id="menu">
+	        <li>
+	            <a href="#"><i class="iconccv icon-Icon_Education iconccv-fw"></i> Educación<span class="fa arrow iconccv-lg"></span></a>
+	            <ul class="nav navMenu nav-second-level">
+	            	<template id="template-indicadores">
+		            	<li>
+		                    <a href="#" class="nombreIndicador">Percepción ciudadana</a>
+		                </li>
+	            	</template>
+	            </ul>
+	            <!-- /.nav-second-level -->
+	        </li>
+		</div>
+	</div>
+<!-- jQuery -->
+<script src="jquery/jquery.min.js"></script>
+<script src="prueba.js"></script>
+</body>
+</html>
