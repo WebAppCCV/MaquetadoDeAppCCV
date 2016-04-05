@@ -18,36 +18,27 @@ function indicador($this){
 
 function getIndicadores(data){
 	var datos = data.result.records;
-	for(var i in datos){
+
+	$.each( datos , function( i, item ) {
 		var dato = datos[i];
+	 	datosCali.tema = dato.tema;
 		datosCali.id = dato.id;
 		datosCali.indicador = dato.Indicador;
 		datosCali.fuente = dato.fuente;
 		indicadores.push(datosCali.indicador);
-
-		$('.indicadores').each(function( i, item ) {
-		var dato = datos[i];
-		var $this = $(item);
-
-		var $nameIndicador = $this.find('.nombreIndicador');
-		datosCali.indicador = dato.Indicador;
-		$nameIndicador.text(datosCali.indicador);
-
-	 })
-
-	}
-
-
-
-	console.log(datos);
-}
-
-function activateTemplate(id){
-	var t = document.querySelector(id);
-	return  document.importNode(t.content, true);
+		console.log(datosCali.indicador);
+		// renderTemplate();
+		$("#nombreIndicador").append("<a>"+datosCali.indicador+"</a>");
+   	 })
 };
 
-function renderTemplate(){
-	var clone = activateTemplate("#template-indicadores");
-	clone.querySelector("[data-indicador]").innerHTML = ;
-}
+// function activateTemplate(id){
+// 	var t = document.querySelector(id);
+// 	return  document.importNode(t.content, true);
+// };
+
+// function renderTemplate(){
+// 	var clone = activateTemplate("#template-indicadores");
+// 	clone.querySelector("[data-indicador]").innerHTML = datosCali.indicador;
+// 	$("#nombreIndicador").append(clone);
+// }

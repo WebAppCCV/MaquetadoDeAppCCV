@@ -22,5 +22,4 @@ function getDatos(data){
 			indicadores.push(datosCali.indicador);
        	 })
 	console.log(datosCali.indicador);
-	console.log("Terminé");
 };
