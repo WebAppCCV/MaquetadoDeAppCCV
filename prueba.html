@@ -4,18 +4,13 @@
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
-
-    <title>Estadisticas CCV</title>
-
+    <title>Prueba Listas</title>
     <!-- Bootstrap Core CSS -->
     <link href="bootstrap/css/bootstrap.css" rel="stylesheet">
-
     <!-- MetisMenu CSS -->
     <link href="metisMenu/metisMenu.css" rel="stylesheet">
-
     <!-- Custom CSS -->
     <link href="dist/css/sb-admin-2.css" rel="stylesheet">
-
     <!-- Custom Fonts -->
     <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
     <link href="dist/css/IconAppCCV.css" rel="stylesheet" type="text/css">
@@ -23,21 +18,13 @@
 </head>
 <body>
 	<div class="container">
-		<!--	<form action="">
-			<input type="submit" data-button="add" value="Población y demografía" > 
-		</form>
-		-->
-		<div id="resultados">
-			<span onclick="indicador(this)" id="1. Población y Demografía">Población y Demografía</span>
-			<br>
-			<span onclick="indicador(this)" id="2. Pobreza y desigualdad">Pobreza y desigualdad</span>
-			<br>
-			<span onclick="indicador(this)" id="3. Salud">Salud</span>
-			<br>
-			<span onclick="indicador(this)" id="4. Educación">Educación</span>
-		</div>
+<!--	<form action="">
+	<input type="submit" data-button="add" value="Población y demografía" > 
+</form>
+-->
 
-
+<!--  <template id="template-indicadores"> -->
+<!--      </template> -->
 
 		<nav>
 		    <div class="navbar-default sidebar" role="navigation">
@@ -47,18 +34,32 @@
                             <a href="index.html">Inicio</a>
                         </li>
 	                    <li>
-	                        <a onclick="indicador(this)" id="1. Población y Demografía">Población y Demografía</a>
-	                       <!--  <template id="template-indicadores"> -->
+	                        <a href="#">Población y Demografía</a>
+	                        <!-- <a onclick="i
+	                        dicador(this)" id="1. Población y Demografía">Población y Demografía</a> -->
 	                        <ul class="nav navMenu nav-second-level">
-
-		                            <li data-Indicador id="nombreIndicador">
-		                    			
+		                            <li data-Indicador="poblacion">		
 		                			</li>
-
 	                        </ul>
 	                        <!-- /.nav-second-level -->
-
-	                     <!--      </template> -->
+	                    </li>
+	                    <li>
+	                        <a href="#">Salud</a>
+	                        <!-- <a onclick="indicador(this)" id="3. Salud">Salud</a> -->
+	                        <ul class="nav navMenu nav-second-level">
+		                            <li data-Indicador="salud">		
+		                			</li>
+	                        </ul>
+	                        <!-- /.nav-second-level -->
+	                    </li>
+	                    <li>
+	                        <a href="#">Educación</a>
+	                        <!-- <a onclick="indicador(this)" id="4. Educación">Educación</a> -->
+	                        <ul class="nav navMenu nav-second-level">
+		                            <li data-Indicador="educacion">		
+		                			</li>
+	                        </ul>
+	                        <!-- /.nav-second-level -->
 	                    </li>
 
                     </ul>
@@ -72,18 +73,14 @@
 
 
 	</div>
-<!-- jQuery -->
-<script src="jquery/jquery.min.js"></script>
-
-<!-- Bootstrap Core JavaScript -->
-<script src="bootstrap/js/bootstrap.min.js"></script>
-
-<!-- Metis Menu Plugin JavaScript -->
-<script src="metisMenu/metisMenu.js"></script>
-
-<!-- Custom Theme JavaScript -->
-<script src="dist/js/appCCV-js.js"></script>
-
-<script src="prueba.js"></script>
+	<!-- jQuery -->
+	<script src="jquery/jquery.min.js"></script>
+	<!-- Bootstrap Core JavaScript -->
+	<script src="bootstrap/js/bootstrap.min.js"></script>
+	<!-- Metis Menu Plugin JavaScript -->
+	<script src="metisMenu/metisMenu.js"></script>
+	<!-- Custom Theme JavaScript -->
+	<script src="dist/js/appCCV-js.js"></script>
+	<script src="prueba.js"></script>
 </body>
 </html>
