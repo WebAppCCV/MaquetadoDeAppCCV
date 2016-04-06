@@ -3,20 +3,31 @@ var apyKeyDiccionario = "5a53027e-43ed-4d60-9195-1dedde259b5e";
 var apyKeyRecurso = "d3e76c49-06f3-4a66-9116-15fa4da62e25";
 var urlConsulta = "http://datos.ciudatos.com/api/action/datastore_search?resource_id=";
 var vinculoIndicadores;
-var datosCali={};
-datosCali.id,datosCali.indicador,datosCali.tema;
+var datosDiccionario={};
+datosDiccionario.id, datosDiccionario.indicador, datosDiccionario.tema;
+var datosIndicador={};
+datosIndicador.id, datosIndicador.anio, datosIndicador.valor;
 
 function indicador($this){
-	var id = $this.id;
-	console.log(id);
-	var consultaIndicador = urlConsulta+apyKeyRecurso+'&fields=ANIO,'+id;
+	datosIndicador.id = $this.id;
+	var consultaIndicador = urlConsulta+apyKeyRecurso+'&fields=ANIO,'+datosIndicador.id;
 	$.getJSON(consultaIndicador, getDatosIndicador);
+
+		function getDatosIndicador(data){
+			var datos = data.result.records;
+			$.each( datos , function( i, item ) {
+			 	var dato = datos[i];
+			  	datosIndicador.anio = dato.ANIO;
+			  	datosIndicador.valor = dato[datosIndicador.id];
+
+			  	if(datosIndicador.valor != "NaN"){
+			   		console.log("Anio: "+datosIndicador.anio+" Valor: "+datosIndicador.valor);
+			  	}
+			})
+		};
 }
 
-function getDatosIndicador(data){
-	var datos = data.result.records;
-	console.log(datos);
-}
+
 
 $(function() {
 	//var inputSearch = $("[data-input='busquedaIndicador']");
@@ -31,18 +42,18 @@ $(function() {
 		var datos = data.result.records;
 		$.each( datos , function( i, item ) {
 			var dato = datos[i];
-			datosCali.tema = dato.tema;
-			datosCali.id = dato.id;
-			datosCali.indicador = dato.Indicador;
-			vinculoIndicadores = "<a onclick='indicador(this)' id='"+datosCali.id+"'><i>"+datosCali.indicador+"</i></a>"
+			datosDiccionario.tema = dato.tema;
+			datosDiccionario.id = dato.id;
+			datosDiccionario.indicador = dato.Indicador;
+			vinculoIndicadores = "<a onclick='indicador(this)' id='"+datosDiccionario.id+"'><i>"+datosDiccionario.indicador+"</i></a>"
 
-			if(datosCali.tema=="1. Población y Demografía"){
+			if(datosDiccionario.tema=="1. Población y Demografía"){
 				$("[data-Indicador='poblacion']").append(vinculoIndicadores);
 			}
-			if(datosCali.tema=="3. Salud"){
+			if(datosDiccionario.tema=="3. Salud"){
 				$("[data-Indicador='salud']").append(vinculoIndicadores);
 			}
-			if(datosCali.tema=="4. Educación"){
+			if(datosDiccionario.tema=="4. Educación"){
 				$("[data-Indicador='educacion']").append(vinculoIndicadores);
 			}
 	   	 })
