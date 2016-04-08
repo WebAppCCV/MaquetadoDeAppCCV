@@ -18,6 +18,7 @@ function indicador($this){
 			$.each( datos , function( i, item ) {
 			 	var dato = datos[i];
 			  	datosIndicador.anio = dato.ANIO;
+			  	console.log(datosIndicador.id);
 			  	datosIndicador.valor = dato[datosIndicador.id];
 
 			  	if(datosIndicador.valor != "NaN"){

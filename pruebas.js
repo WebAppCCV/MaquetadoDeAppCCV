@@ -12,7 +12,7 @@ Promise.resolve($.getJSON(consulDic))
 function getDatos(data){
 	var datos = data.result.records;
 
-	//var indicadores = [];
+	var indicadores = [];
 		$.each( datos , function( i, item ) {
 			var dato = datos[i];
 		 	datosCali.tema = dato.tema;
