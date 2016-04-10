@@ -2,20 +2,21 @@ var $ = window.jQuery
 var apyKeyDiccionario = "5a53027e-43ed-4d60-9195-1dedde259b5e";
 var apyKeyRecurso = "d3e76c49-06f3-4a66-9116-15fa4da62e25";
 var urlConsulta = "http://datos.ciudatos.com/api/action/datastore_search?resource_id=";
+var indicador= {};
+indicador.id, indicador.nombre, indicador.fuente, indicador.unidad, indicador.anio, indicador.valor;
+var options = {};
+
+
 
 function getIndicador($id, $indicador, $fuente, $unidad){
 	var dataIndicador = [];
-	var dataAnio = []; 
-	var dataNumberIndicador;
-	var indicador= {};
-	indicador.id, indicador.nombre, indicador.fuente, indicador.unidad, indicador.anio, indicador.valor;
+	var dataAnio = [];
 	indicador.id = $id;
 	indicador.nombre = $indicador;
 	indicador.fuente = $fuente;
 	indicador.unidad = $unidad;
-
-
 	var consultaIndicador = urlConsulta+apyKeyRecurso+'&fields=ANIO,'+indicador.id+'&sort=ANIO';
+
 	$.getJSON(consultaIndicador, getDatosIndicador);
 
 		function getDatosIndicador(data){
@@ -29,20 +30,20 @@ function getIndicador($id, $indicador, $fuente, $unidad){
 			   		dataIndicador.push(indicador.valor);
 			   		dataAnio.push(indicador.anio);
 			  	}
-			})
+			});
 
-			dataNumberIndicador = dataIndicador.map(Number);
+			var dataNumberIndicador = dataIndicador.map(Number);
 
+			options = {
 
-
-
-			$('#containerGraph').highcharts({
-		        chart:{
+				chart:{
 		            //Tipos: line, spline, bar, column
+		            renderTo: 'containerGraph',
 		            type: 'column'
 		        },
 		         credits: {
-		            enabled: false
+		            text: 'CaliComoVamos.org.co',
+            		href: '#'
 		        },
 		        title: {
 		            text: indicador.nombre
@@ -80,29 +81,22 @@ function getIndicador($id, $indicador, $fuente, $unidad){
 		            data: dataNumberIndicador,
 		            color: '#FEC930',
 		            dataLabels: {
-		                    enabled: true,
-		                    
+		                    enabled: true       
 		            }
-		        }
-		        // ,{
-		        //     name: 'Lala',
-		        //     data: [2120,3224,324234,234234,234234,234234,234234],
-		        //     color: '#FF0000',
-		        //     dataLabels: {
-		        //             enabled: true
-		        //     }
-		        // }
-		        ]
-    		});
+		        }]
 
+			}
+
+			graficar();		
 		};
-
-
-
 }
 
+
+
 function graficar(){
-	
+	//Cosas para variar:
+	//Tipo de gráfica, Series: Color, quitar DataLables
+	var chart = new Highcharts.Chart(options);
 }
 
 
@@ -120,7 +114,6 @@ $(function() {
 		var datos = data.result.records;
 		$.each( datos , function( i, item ) {
 			var dato = datos[i];
-			//vinculoIndicadores = "<a onclick='indicador(this)' id='"+datosDiccionario.id+"'><i>"+datosDiccionario.indicador+"</i></a>"
 			var vinculoIndicadores = '<a onclick="getIndicador(\''+dato.id+'\',\''+dato.Indicador+'\',\''+dato.fuente+'\',\''+dato.unidad+'\')"><i>'+dato.Indicador+'</i></a>'
 
 			if(dato.tema=="1. Población y Demografía"){
