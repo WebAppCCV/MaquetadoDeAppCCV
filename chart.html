@@ -12,9 +12,10 @@ ${demo.css}
 
 $(function () {
 
-var url =  "http://datos.ciudatos.com/api/action/datastore_search?resource_id=d3e76c49-06f3-4a66-9116-15fa4da62e25&fields=ANIO,0-PO-27";
+var url =  "http://datos.ciudatos.com/api/action/datastore_search?resource_id=d3e76c49-06f3-4a66-9116-15fa4da62e25&fields=ANIO,0-PO-27&sort=ANIO";
 
 var dataa = [];
+var anio = [];
 
 $.getJSON(url,  function(data) {
     var datos = data.result.records;
@@ -22,58 +23,97 @@ $.getJSON(url,  function(data) {
     $.each( datos , function( i, item ) {
         var dato = datos[i];
         var datoIndica = dato['0-PO-27'];
+        var datoAnho = dato.ANIO;
 
             if(datoIndica != "NaN"){
                   dataa.push(datoIndica);
+                  anio.push(datoAnho);
             }
     })
 
     var arreglonumeros = dataa.map(Number);
-    console.log(dataa);
-    console.log(arreglonumeros);
 
-        $('#container').highcharts({
+
+    var options = {
+
         chart:{
             //Tipos: line, spline, bar, column
+            renderTo: 'container',
             type: 'column'
         },
+         credits: {
+            enabled: false
+        },
         title: {
-            text: 'Monthly Average Temperature'
+            text: 'Nombre indicador'
+        },
+        subtitle:{
+            text: 'Código: 0-P0-27 - Fuente: DANE'
         },
         xAxis: {
-            categories: ['2005', '2006', '2007', '2008', '2009', '2010',
-                '2011', '2012', '2013', '2014'],
-
+            categories: anio,
             title: {
                 text: 'Años'
             }
         },
         yAxis: {
             title: {
-                text: 'Valores'
+                text: 'Unidad'
             }
         },
         tooltip: {
             crosshairs: true,
-            shared: true,
+            shared: true
         },
-        plotOptions: {
-            column: {
-                dataLabels: {
-                    enabled: true
-                }
-            }
-        },
+        
         legend: {
             layout: 'horizontal',
-            align: 'center',
-            verticalAlign: 'bottom'
+            verticalAlign: 'bottom',
+            align: 'center'
+        },
+        exporting: {
+            filename: 'NombreIndicador'
         },
         series: [{
-            name: 'Cali',
-            data: arreglonumeros
-        }]
+            // name: 'Cali',
+            // data: arreglonumeros,
+            dataLabels: {
+                    enabled: true
+            }
+        }
+        // ,{
+        //     name: 'Lala',
+        //     data: [2120,3224,324234,234234,234234,234234,234234],
+        //     color: '#FF0000',
+        //     dataLabels: {
+        //             enabled: true
+        //     }
+        // }
+        ]
+
+
+
+    };
+
+
+
+    // $('#container').highcharts({
+
+    // });
+
+    options.series[0].name = 'Cali';
+    options.series[0].data = arreglonumeros;
+    
+
+
+    options.series.push({
+        name: 'Bogotá',
+        data: [123123, 123123, 123123, 123123, 123123, 123123],
+        color: '#FF0000'
     });
+
+    var chart = new Highcharts.Chart(options);
+
 
 });
 
