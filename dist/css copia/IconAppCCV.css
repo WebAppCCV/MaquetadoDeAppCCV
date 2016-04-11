@@ -1,0 +1,261 @@
+@font-face {
+  font-family: 'IconsCCV';
+  src:url('../fonts/IconsCCV.eot?s45tbj');
+  src:url('../fonts/IconsCCV.eot?s45tbj#iefix') format('embedded-opentype'),
+    url('../fonts/IconsCCV.ttf?s45tbj') format('truetype'),
+    url('../fonts/IconsCCV.woff?s45tbj') format('woff'),
+    url('../fonts/IconsCCV.svg?s45tbj#IconsCCV') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+    /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'IconsCCV' !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.iconccv {
+  display: inline-block;
+  font: normal normal normal 14px/1 FontAwesome;
+  font-size: inherit;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+/* makes the font 33% larger relative to the icon container */
+.iconccv-lg {
+  font-size: 1.33333333em;
+  line-height: 0.75em;
+  vertical-align: -15%;
+}
+.iconccv-2x {
+  font-size: 2em;
+}
+.iconccv-3x {
+  font-size: 3em;
+}
+.iconccv-4x {
+  font-size: 4em;
+}
+.iconccv-5x {
+  font-size: 5em;
+}
+.iconccv-fw {
+  width: 1.28571429em;
+  text-align: center;
+}
+.iconccv-ul {
+  padding-left: 0;
+  margin-left: 2.14285714em;
+  list-style-type: none;
+}
+.iconccv-ul > li {
+  position: relative;
+}
+.iconccv-li {
+  position: absolute;
+  left: -2.14285714em;
+  width: 2.14285714em;
+  top: 0.14285714em;
+  text-align: center;
+}
+.iconccv-li.iconccv-lg {
+  left: -1.85714286em;
+}
+.iconccv-border {
+  padding: .2em .25em .15em;
+  border: solid 0.08em #eeeeee;
+  border-radius: .1em;
+}
+.pull-right {
+  float: right;
+}
+.pull-left {
+  float: left;
+}
+.iconccv-rotate-90 {
+  filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=1);
+  -webkit-transform: rotate(90deg);
+  -ms-transform: rotate(90deg);
+  transform: rotate(90deg);
+}
+.iconccv-rotate-180 {
+  filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=2);
+  -webkit-transform: rotate(180deg);
+  -ms-transform: rotate(180deg);
+  transform: rotate(180deg);
+}
+.iconccv-rotate-270 {
+  filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
+  -webkit-transform: rotate(270deg);
+  -ms-transform: rotate(270deg);
+  transform: rotate(270deg);
+}
+.iconccv-flip-horizontal {
+  filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=0, mirror=1);
+  -webkit-transform: scale(-1, 1);
+  -ms-transform: scale(-1, 1);
+  transform: scale(-1, 1);
+}
+.iconccv-flip-vertical {
+  filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=2, mirror=1);
+  -webkit-transform: scale(1, -1);
+  -ms-transform: scale(1, -1);
+  transform: scale(1, -1);
+}
+:root .iconccv-rotate-90,
+:root .iconccv-rotate-180,
+:root .iconccv-rotate-270,
+:root .iconccv-flip-horizontal,
+:root .iconccv-flip-vertical {
+  filter: none;
+}
+.iconccv-stack {
+  position: relative;
+  display: inline-block;
+  width: 2em;
+  height: 2em;
+  line-height: 2em;
+  vertical-align: middle;
+}
+.iconccv-stack-1x,
+.iconccv-stack-2x {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  text-align: center;
+}
+.iconccv-stack-1x {
+  line-height: inherit;
+}
+.iconccv-stack-2x {
+  font-size: 2em;
+}
+.iconccv-inverse {
+  color: #ffffff;
+}
+
+.icon-Icon_a:before {
+  content: "\e900";
+}
+.icon-Icon_A:before {
+  content: "\e901";
+}
+.icon-Icon_Security:before {
+  content: "\e902";
+}
+.icon-Icon_Culture:before {
+  content: "\e903";
+}
+.icon-Icon_Mobility2:before {
+  content: "\e904";
+}
+.icon-Icon_Music:before {
+  content: "\e905";
+}
+.icon-Icon_Service2:before {
+  content: "\e906";
+}
+.icon-Icon_Sport:before {
+  content: "\e907";
+}
+.icon-Icon_Help:before {
+  content: "\e908";
+}
+.icon-Icon_HelpClose:before {
+  content: "\e909";
+}
+.icon-Icon_CCVHome:before {
+  content: "\e90a";
+}
+.icon-Icon_Education:before {
+  content: "\e90b";
+}
+.icon-Icon_Health:before {
+  content: "\e90c";
+}
+.icon-IconService:before {
+  content: "\e90d";
+}
+.icon-Icon_Home:before {
+  content: "\e90e";
+}
+.icon-Icon_Park:before {
+  content: "\e90f";
+}
+.icon-Icon_Forest:before {
+  content: "\e910";
+}
+.icon-Icon_Street:before {
+  content: "\e912";
+}
+.icon-Icon_Mobility:before {
+  content: "\e913";
+}
+.icon-Icon_Video:before {
+  content: "\e914";
+}
+.icon-Icon_File:before {
+  content: "\e915";
+}
+.icon-Icon_File2:before {
+  content: "\e916";
+}
+.icon-Icon_Download:before {
+  content: "\e917";
+}
+.icon-Icon_Comment:before {
+  content: "\e918";
+}
+.icon-Icon_Search:before {
+  content: "\e911";
+}
+.icon-Icon_Chart:before {
+  content: "\e919";
+}
+.icon-Icon_Chart2:before {
+  content: "\e91a";
+}
+.icon-Icon_Ambient:before {
+  content: "\e91b";
+}
+.icon-Icon_Street2:before {
+  content: "\e91c";
+}
+.icon-Icon_Man:before {
+  content: "\e91d";
+}
+.icon-Icon_Woman:before {
+  content: "\e91e";
+}
+.icon-Icon_Triangle:before {
+  content: "\e91f";
+}
+.icon-Icon_Table:before {
+  content: "\e920";
+}
+.icon-Icon_Google:before {
+  content: "\e921";
+}
+.icon-Icon_Facebook:before {
+  content: "\e922";
+}
+.icon-Icon_Twitter:before {
+  content: "\e923";
+}
+.icon-Icon_Youtube:before {
+  content: "\e925";
+}
+.icon-Icon_PDF:before {
+  content: "\e924";
+}

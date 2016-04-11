@@ -6,6 +6,56 @@ var indicador= {};
 indicador.id, indicador.nombre, indicador.fuente, indicador.unidad, indicador.anio, indicador.valor;
 var options = {};
 
+options = {
+	chart:{
+        renderTo: 'containerGraph',
+        type: 'column'
+    },
+     credits: {
+        text: 'CaliComoVamos.org.co',
+		href: '#'
+    },
+    title: {
+    	text: ''
+    },
+    subtitle:{
+    	text: ''
+    },
+    xAxis: {
+    	categories: '',
+        title: {
+            text: 'Años'
+        }
+    },
+    yAxis: {
+        title: {
+        	text: ''
+        }
+    },
+    tooltip: {
+        crosshairs: true,
+        shared: true,
+        valueDecimals: 2
+    },
+    
+    legend: {
+        layout: 'horizontal',
+        verticalAlign: 'bottom',
+        align: 'center'
+    },
+    exporting: {
+    	filename: ''
+    },
+    series: [{
+        name: 'Cali',
+        data: [],
+        color: '#FEC930',
+        dataLabels: {
+                enabled: true       
+        }
+    }]
+}
+
 
 
 function getIndicador($id, $indicador, $fuente, $unidad){
@@ -34,70 +84,67 @@ function getIndicador($id, $indicador, $fuente, $unidad){
 
 			var dataNumberIndicador = dataIndicador.map(Number);
 
-			options = {
+	        options.title.text = indicador.nombre;
+	        options.subtitle.text = 'Código: '+indicador.id+' - Fuente: '+ indicador.fuente;
+	        options.xAxis.categories = dataAnio;
+	        options.yAxis.title.text = indicador.nombre;
+	        options.exporting.filename = 'Gráfica '+indicador.nombre;
+	        options.series[0].data = dataNumberIndicador;
 
-				chart:{
-		            //Tipos: line, spline, bar, column
-		            renderTo: 'containerGraph',
-		            type: 'column'
-		        },
-		         credits: {
-		            text: 'CaliComoVamos.org.co',
-            		href: '#'
-		        },
-		        title: {
-		            text: indicador.nombre
-		        },
-		        subtitle:{
-		            text: 'Código: '+indicador.id+' - Fuente: '+ indicador.fuente
-		        },
-		        xAxis: {
-		            categories: dataAnio,
-		            title: {
-		                text: 'Años'
-		            }
-		        },
-		        yAxis: {
-		            title: {
-		                text: indicador.unidad
-		            }
-		        },
-		        tooltip: {
-		            crosshairs: true,
-		            shared: true,
-		            valueDecimals: 2
-		        },
-		        
-		        legend: {
-		            layout: 'horizontal',
-		            verticalAlign: 'bottom',
-		            align: 'center'
-		        },
-		        exporting: {
-		            filename: 'Gráfica '+indicador.nombre
-		        },
-		        series: [{
-		            name: 'Cali',
-		            data: dataNumberIndicador,
-		            color: '#FEC930',
-		            dataLabels: {
-		                    enabled: true       
-		            }
-		        }]
-
-			}
 
 			graficar();		
 		};
 }
 
+function radioButton(){
+	var typeChar = $('input:radio[name=optionChart]:checked').attr('id');
+	var typeColor = $('input:radio[name=optionColor]:checked').attr('id');
+	var typeLabel = $('input:radio[name=optionLabel]:checked').attr('id');
+
+	if(typeChar=="TypeChart1"){
+	    options.chart.type = 'column';
+	}else{
+		if(typeChar=="TypeChart2"){
+			options.chart.type = 'bar';
+		}else{
+			if(typeChar=="TypeChart3"){
+				options.chart.type = 'line';
+			}else{
+				options.chart.type = 'spline';
+			}
+		}
+	}
+
+	if(typeColor=="TypeColor1"){
+		options.series[0].color = '#FFC902';
+	}else{
+		if(typeColor=="TypeColor2"){
+			options.series[0].color = '#06819E';
+		}else{
+			if(typeColor=="TypeColor3"){
+				options.series[0].color = '#EC0234';
+			}else{
+				options.series[0].color = '#365989';
+			}
+		}
+	}
+
+
+	if(typeLabel=="TypeLabel1"){
+		options.series[0].dataLabels.enabled = true;
+	}else{
+		options.series[0].dataLabels.enabled = false;
+	}
+
+	graficar();
+
+}
 
 
 function graficar(){
-	//Cosas para variar:
-	//Tipo de gráfica, Series: Color, quitar DataLables
 	var chart = new Highcharts.Chart(options);
 }
+
 
 
 $(function() {
@@ -127,4 +174,10 @@ $(function() {
 			}
 	   	 })
 	};
+
+
+
+
+
+
 });

@@ -3200,8 +3200,6 @@ fieldset[disabled] .btn-default.focus {
   color: #fff;
   background-color: #333;
 }
-
-
 .btn-navCCV {
   color: #fff;
   background-color: #5172A0;
@@ -3213,8 +3211,91 @@ fieldset[disabled] .btn-default.focus {
 .btn-navCCV.hover {
   color: #fff;
 }
+/*  BOTÓN COLOR ORANGE  */
+.btn-colorTols-orage {
+  color: #fff;
+  background-color: #FFB902;
+}
+.btn-colorTols-orage:focus,
+.btn-colorTols-orage.focus {
+  color: #fff;
+  background-color: #D79C04;
+}
+.btn-colorTols-orage:hover {
+  color: #fff;
+  background-color: #D79C04;
+}
+.btn-colorTols-orage:active,
+.btn-colorTols-orage.active,
+.open > .dropdown-toggle.btn-colorTols-orage {
+  color: #fff;
+  background-color: #B98703;
+}
 
+/*  BOTÓN COLOR VERDEAZUL  */
+.btn-colorTols-verdeAzul {
+  color: #fff;
+  background-color: #06819E;
+}
+.btn-colorTols-verdeAzul:focus,
+.btn-colorTols-verdeAzul.focus {
+  color: #fff;
+  background-color: #066D85;
+}
+.btn-colorTols-verdeAzul:hover {
+  color: #fff;
+  background-color: #066D85;
+}
+.btn-colorTols-verdeAzul:active,
+.btn-colorTols-verdeAzul.active,
+.open > .dropdown-toggle.btn-colorTols-verdeAzul {
+  color: #fff;
+  background-color: #055E73;
+}
 
+/*  BOTÓN COLOR ROJO  */
+.btn-colorTols-red {
+  color: #fff;
+  background-color: #EC0234;
+}
+.btn-colorTols-red:focus,
+.btn-colorTols-red.focus {
+  color: #fff;
+  background-color: #C8032D;
+}
+.btn-colorTols-red:hover {
+  color: #fff;
+  background-color: #C8032D;
+}
+.btn-colorTols-red:active,
+.btn-colorTols-red.active,
+.open > .dropdown-toggle.btn-colorTols-red {
+  color: #fff;
+  background-color: #AC0227;
+}
+
+/*  BOTÓN COLOR AZUL CCV  */
+.btn-colorTols-blueCCV {
+  color: #fff;
+  background-color: #365989;
+}
+.btn-colorTols-blueCCV:focus,
+.btn-colorTols-blueCCV.focus {
+  color: #fff;
+  background-color: #2B4D7D;
+}
+.btn-colorTols-blueCCV:hover {
+  color: #fff;
+  background-color: #2B4D7D;
+}
+.btn-colorTols-blueCCV:active,
+.btn-colorTols-blueCCV.active,
+.open > .dropdown-toggle.btn-colorTols-blueCCV {
+  color: #fff;
+  background-color: #22416C;
+}
+
+/*  Fin de colores para botones tools  */
 
 .btn-primary {
   color: #fff;

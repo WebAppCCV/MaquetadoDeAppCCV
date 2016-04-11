@@ -13,11 +13,77 @@
     <link href="dist/css/sb-admin-2.css" rel="stylesheet">
     <!-- Custom Fonts -->
     <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    
     <link href="dist/css/IconAppCCV.css" rel="stylesheet" type="text/css">
 
 </head>
 <body>
 	<div class="container">
+
+		<div class="tipoDeGrafica">
+			<div class="btn" data-toggle="buttons">
+			  <label class="btn btn-default active">
+			    <input type="radio" name="optionChart" id="TypeChart1" autocomplete="off" checked>
+			     	<span><img src="Imagen_1.png"></span>
+			  </label>
+			  <label class="btn btn-default">
+			    <input type="radio" name="optionChart" id="TypeChart2" autocomplete="off">
+			    	<span><img src="Imagen_2.png"></span>
+			  </label>
+			  <label class="btn btn-default">
+			    <input type="radio" name="optionChart" id="TypeChart3" autocomplete="off">
+			    	<span><img src="Imagen_3.png"></span>
+			  </label>
+			  <label class="btn btn-default">
+			    <input type="radio" name="optionChart" id="TypeChart4" autocomplete="off">
+			    	<span><img src="Imagen_4.png"></span>
+			  </label>
+			</div>
+		</div>
+
+		<div class="colorGrafica">
+
+			<div class="btn" data-toggle="buttons">
+				<label class="btn btn-colorTols-orage active">
+				    <input type="radio" name="optionColor" id="TypeColor1" autocomplete="off" checked>
+				     	LO QUE SEA COLOR
+				</label>
+				<label class="btn btn-colorTols-verdeAzul">
+				    <input type="radio" name="optionColor" id="TypeColor2" autocomplete="off">
+				     	LO QUE SEA COLOR
+				</label>
+				<label class="btn btn-colorTols-red">
+				    <input type="radio" name="optionColor" id="TypeColor3" autocomplete="off">
+				     	LO QUE SEA COLOR
+				</label>
+				<label class="btn btn-colorTols-blueCCV">
+				    <input type="radio" name="optionColor" id="TypeColor4" autocomplete="off">
+				     	LO QUE SEA COLOR
+				</label>
+		    </div>
+		</div>
+
+		<div class="dataLabelGrafica">
+			<div class="btn" data-toggle="buttons">
+				<label class="btn btn-default active">
+				    <input type="radio" name="optionLabel" id="TypeLabel1" autocomplete="off" checked>
+				     	Si
+				</label>
+				<label class="btn btn-default">
+				    <input type="radio" name="optionLabel" id="TypeLabel2" autocomplete="off">
+				     	No
+				</label>
+		    </div>
+		</div>
+
+		<div class="boton">
+			<input type="button" onclick="radioButton()" value="Botón">
+			
+		</div>
+
+
+
+
 		<!--
 		<form action="">
 			<input type="submit" data-button="add" value="Población y demografía" > 
