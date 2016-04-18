@@ -1615,7 +1615,7 @@ pre code {
 }
 
   .moduloGrafico{
-    height: 220px;
+    height: 410px;
   }
 
   .moduloDescripcion, .moduloFiltro, .moduloTabla, .moduloDescarga{
@@ -1796,15 +1796,6 @@ pre code {
 }
 @media (min-width: 768px) {
 
-  .moduloGrafico{
-    height: 230px;
-  }
-
-  .moduloDescripcion, .moduloFiltro, .moduloTabla, .moduloDescarga{
-    height: 140px;
-    overflow: auto;
-  }
-
   .interaccionMovil, .slidesDesktop{
     display: inline-block;
   }
@@ -1972,20 +1963,6 @@ pre code {
 }
 @media (min-width: 992px) {
 
-  .moduloDescripcion{
-    height: 60px;
-    overflow: auto;
-  }
-
-  .moduloGrafico{
-    height: 280px;
-  }
-
-  .moduloFiltro, .moduloTabla, .moduloDescarga{
-    height: 120px;
-    overflow: auto;
-  }
-
   .descripcion, .apartadoInteraccion, .slidesDesktop {
     display: inline-block;
   }
@@ -2152,20 +2129,6 @@ pre code {
   }
 }
 @media (min-width: 1200px) {
-
-  .moduloDescripcion{
-    height: 55px;
-    overflow: auto;
-  }
-
-  .moduloGrafico{
-    height: 350px;
-  }
-
-  .moduloFiltro, .moduloTabla, .moduloDescarga{
-    height: 120px;
-    overflow: auto;
-  }
 
   .descripcion, .apartadoInteraccion, .slidesDesktop {
     display: inline-block;
@@ -3224,12 +3187,15 @@ fieldset[disabled] .btn-default.focus {
 .btn-colorTols-orage:hover {
   color: #fff;
   background-color: #D79C04;
+  border-color: #adadad;
 }
 .btn-colorTols-orage:active,
 .btn-colorTols-orage.active,
 .open > .dropdown-toggle.btn-colorTols-orage {
   color: #fff;
   background-color: #B98703;
+  border-width: 3px;
+  border-color: #adadad;
 }
 
 /*  BOTÓN COLOR VERDEAZUL  */
@@ -3251,6 +3217,8 @@ fieldset[disabled] .btn-default.focus {
 .open > .dropdown-toggle.btn-colorTols-verdeAzul {
   color: #fff;
   background-color: #055E73;
+  border-width: 3px;
+  border-color: #adadad;
 }
 
 /*  BOTÓN COLOR ROJO  */
@@ -3272,6 +3240,8 @@ fieldset[disabled] .btn-default.focus {
 .open > .dropdown-toggle.btn-colorTols-red {
   color: #fff;
   background-color: #AC0227;
+  border-width: 3px;
+  border-color: #adadad;
 }
 
 /*  BOTÓN COLOR AZUL CCV  */
@@ -3293,6 +3263,8 @@ fieldset[disabled] .btn-default.focus {
 .open > .dropdown-toggle.btn-colorTols-blueCCV {
   color: #fff;
   background-color: #22416C;
+  border-width: 3px;
+  border-color: #adadad;
 }
 
 /*  Fin de colores para botones tools  */

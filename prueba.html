@@ -15,6 +15,7 @@
     <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
     
     <link href="dist/css/IconAppCCV.css" rel="stylesheet" type="text/css">
+    <link href="dist/css/jquery.dynatable.css" rel="stylesheet" type="text/css">
 
 </head>
 <body>
@@ -77,8 +78,7 @@
 		</div>
 
 		<div class="boton">
-			<input type="button" onclick="radioButton()" value="Botón">
-			
+			<input type="button" onclick="radioButton()" value="Graficar">
 		</div>
 
 
@@ -146,13 +146,26 @@
 		<br>
 		<br>
 		
-	<div id="containerGraph" style="min-width: 310px; height: 400px; margin: 0 auto">
-		
+	<div id="containerGraph" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
 
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+
+	<div id="containerTable">
+		<table id="my-final-table">
+			<thead>
+    			<th>ANIO</th>
+    			<th>0-PO-27</th>
+  			</thead>
+  			<tbody>
+  			</tbody>
+		</table>
 
 	</div>
-		
-
+	
 	</div>
 
 	<!-- jQuery -->
@@ -164,11 +177,14 @@
 	<!-- Custom Theme JavaScript -->
 	<script src="dist/js/appCCV-js.js"></script>
 	<!-- JavaScript de prueba -->
-	<script src="prueba.js"></script>
+	<script src="prueba2.js"></script>
 	<!-- Highchart para graficar -->
 	<script src="https://code.highcharts.com/highcharts.js"></script>
 	<!-- Highchart para descargar -->
 	<script src="https://code.highcharts.com/modules/exporting.js"></script>
+	<!-- DynaTables JS-->
+	<script src="dist/js/jquery.dynatable.js"></script>
+
 
 </body>
 </html>

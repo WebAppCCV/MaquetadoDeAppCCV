@@ -58,6 +58,7 @@ options = {
     }]
 }
 
+
 function getIndicador($id, $indicador, $fuente, $unidad, $tema){
 	var dataIndicador = [];
 	var dataAnio = [];
@@ -143,7 +144,14 @@ function getIndicador($id, $indicador, $fuente, $unidad, $tema){
 
 			msgDescription += "</p><p><strong>Nombre del indicador:</strong> "+indicador.nombre+"</p><p><strong>Fuente:</strong> "+indicador.fuente+"</p>";
 			$(".moduloDescripcion").html(msgDescription);
-		};
+
+			
+			$('#my-final-table').dynatable({
+			  dataset: {
+			    records: datos
+			  }
+			});
+		}
 }
 
 function radioButton(){
