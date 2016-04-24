@@ -3,35 +3,35 @@ var apyKeyDiccionario = "d2caa4c3-941b-4b9a-a168-d1206eda1bb4";
 var apyKeyRecurso = "529a2e27-f0b9-4dae-a556-a445d6599d7f";
 var urlConsulta = "http://datos.ciudatos.com/api/action/datastore_search?resource_id=";
 
-var indicador= {};
+var indicador = {};
 indicador.id, indicador.nombre, indicador.fuente, indicador.unidad, indicador.tema, indicador.anio, indicador.valor;
 var options = {};
 var msgDescription;
 
 options = {
-	chart:{
+    chart: {
         renderTo: 'containerGraph',
         type: 'column'
     },
-     credits: {
+    credits: {
         text: 'CaliComoVamos.org.co',
-		href: '#'
+        href: '#'
     },
     title: {
-    	text: ''
+        text: ''
     },
-    subtitle:{
-    	text: ''
+    subtitle: {
+        text: ''
     },
     xAxis: {
-    	categories: '',
-	        title: {
+        categories: '',
+        title: {
             text: 'Años'
         }
     },
     yAxis: {
         title: {
-        	text: ''
+            text: ''
         }
     },
     tooltip: {
@@ -39,223 +39,273 @@ options = {
         shared: true,
         valueDecimals: 2
     },
-    
+
     legend: {
         layout: 'horizontal',
         verticalAlign: 'bottom',
         align: 'center'
     },
     exporting: {
-    	filename: ''
+        filename: ''
     },
     series: [{
         name: 'Cali',
         data: [],
         color: '#FEC930',
         dataLabels: {
-                enabled: true       
+            enabled: true
         }
     }]
 }
 
-function getIndicador($id, $indicador, $fuente, $unidad, $tema){
-	var dataIndicador = [];
-	var dataAnio = [];
-	indicador.id = $id;
-	indicador.nombre = $indicador;
-	indicador.fuente = $fuente;
-	indicador.unidad = $unidad;
-	indicador.tema = $tema;
+function getIndicador($id, $indicador, $fuente, $unidad, $tema) {
+    var dataIndicador = [],
+        dataAnio = [],
+        arrayJson = [];
+    indicador.id = $id;
+    indicador.nombre = $indicador;
+    indicador.fuente = $fuente;
+    indicador.unidad = $unidad;
+    indicador.tema = $tema;
 
-	var consultaIndicador = urlConsulta+apyKeyRecurso+'&fields=ANIO,'+indicador.id+'&sort=ANIO';
+    function indicador(anio, valor) {
+        this.AÑO = anio;
+        this.VALOR = valor;
+    }
 
-	$.getJSON(consultaIndicador, getDatosIndicador);
+    var consultaIndicador = urlConsulta + apyKeyRecurso + '&fields=ANIO,' + indicador.id + '&sort=ANIO';
 
-		function getDatosIndicador(data){
-			var datos = data.result.records;
-			$.each( datos , function( i, item ) {
-			 	var dato = datos[i];
-			  	indicador.anio = dato.ANIO;
-			  	indicador.valor = dato[indicador.id];
+    $.getJSON(consultaIndicador, getDatosIndicador);
 
-			  	if(indicador.valor != "NaN"){
-			   		dataIndicador.push(indicador.valor);
-			   		dataAnio.push(indicador.anio);
-			  	}
-			});
+    function getDatosIndicador(data) {
+        var datos = data.result.records;
+        $.each(datos, function(i, item) {
+            var dato = datos[i];
+            indicador.anio = dato.ANIO;
+            indicador.valor = dato[indicador.id];
 
-			var dataNumberIndicador = dataIndicador.map(Number);
+            if (indicador.valor != "NaN") {
+                dataIndicador.push(indicador.valor);
+                dataAnio.push(indicador.anio);
+                //Json sin valores nulos para la creación de la tabla
+                var objIndicador = new indicador(indicador.anio, indicador.valor);
+                arrayJson.push(objIndicador);
+            }
+        });
 
-	        options.title.text = indicador.nombre;
-	        options.subtitle.text = 'Código: '+indicador.id+' - Fuente: '+ indicador.fuente;
-	        options.xAxis.categories = dataAnio;
-	        options.yAxis.title.text = indicador.nombre;
-	        options.exporting.filename = 'Gráfica '+indicador.nombre;
-	        options.series[0].data = dataNumberIndicador;
+        var dataNumberIndicador = dataIndicador.map(Number);
 
-
-			graficar();
-
-			msgDescription = "<p><strong>Contexto: </strong>"
-			if(indicador.tema=="1. Población y Demografía"){
-				msgDescription += "Cali Cómo Vamos monitorea anualmente los indicadores que conciernen a la información demográfica de la ciudad, brindando un reporte objetivo de las variaciones poblacionales.";
-			}else{
-			if(indicador.tema=="2. Pobreza y desigualdad"){
-				msgDescription += "Cali Cómo Vamos monitorea las principales variables y acciones que dan cuenta de la intervención a grupos poblacionales vulnerables, lo que es fundamental para lograr la equidad social.";
-			}else{
-			if(indicador.tema=="4. Educación"){
-				msgDescription += "Este capítulo evalúa el comportamiento de la Educación Inicial Básica, Media y Superior a través de indicadores de cobertura y calidad en Cali.";
-			}else{
-			if(indicador.tema=="6. Seguridad ciudadana"){
-				msgDescription += "El programa Cali Cómo Vamos evalúa los cambios en la seguridad y convivencia de la ciudad, en función de las estadísticas de homicidios, muertes violentas, delitos de alto impacto, las denuncias por maltrato infantil, así como a través de los resultados de las principales estrategias de la Administración y la Policía en materia de seguridad y convivencia ciudadana.";
-			}else{
-			if(indicador.tema=="8. Medio ambiente"){
-				msgDescription += "Cali Cómo Vamos monitorea anualmente el Ambiente de la ciudad en sus principales componentes: aire, agua, ruido, árboles, zonas verdes y zonas de protección.";
-			}else{
-			if(indicador.tema=="11. Cultura, turismo, recreación y deporte"){
-				msgDescription += "La actividad cultural permite expandir el imaginario de las personas, explorar su potencial intelectual y artístico, así como puede contribuir a mejorar la convivencia. Es por ello que CCV monitorea indicadores de realización de eventos y programas que la promuevan.";
-			}else{
-			if(indicador.tema=="3. Salud"){
-				msgDescription += "Cali Cómo Vamos evalúa los cambios en la salud de los caleños, en función de indicadores de cobertura, mortalidad específica y calidad de los servicios médicos y de la salud pública en general.";
-			}else{
-			if(indicador.tema=="9. Movilidad"){
-				msgDescription += "Este apartado se concentra en los principales componentes del tránsito vial, parque automotor, control, accidentalidad y en el principal proyecto de transporte de la ciudad, el Sistema Integrado de Transporte Masivo, MIO";
-			}else{
-			if(indicador.tema=="12. Participación y cultura ciudadana"){
-				msgDescription += "Cali Cómo vamos evalua anualmente las acciones o iniciativas que nacen a partir de la comunidad ciudadana con el fin de impulsar el desarrollo local.";
-			}else{
-			if(indicador.tema=="10. Espacio público"){
-				msgDescription += "La disponibilidad de Espacio Público de calidad es componente fundamental del Hábitat, al igual que la Vivienda y su entorno. Por ello, CCV le hace seguimiento desde la tasa de espacio público efectivo por habitante, los estándares internacionales y las obras para mejorarlo en cantidad y calidad para los caleños.";
-			}else{
-			if(indicador.tema=="7. Vivienda y Servicios públicos"){
-				msgDescription += "La evaluación sobre la tenencia de vivienda digna por parte de los caleños, es abordada desde indicadores de déficit habitacional cuantitativo y cualitativo, además de los resultados de las estrategias de reducción de sus principales componentes.";
-			}else{
-			if(indicador.tema=="5. Mercado laboral (Empleo)"){
-				msgDescription += "La generación de empleo y empresa genera los ingresos que constituyen el sustento principal de las personas y las familias para garantizar su acceso a los bienes y servicios que satisfacen sus necesidades básicas.";
-			}else{
-			if(indicador.tema=="13. Finanzas y gestión pública"){
-				msgDescription += "Este capítulo brinda un panorama general de las finanzas del municipio, haciendo seguimiento anual a sus ingresos, gastos, inversión y deuda. Una hacienda municipal sólida, sostenible y amplia representa flujo continuo de recursos para la inversión social de los caleños.";
-			}else{
-			if(indicador.tema=="14. Entorno económico"){
-				msgDescription += "La generación de empleo y empresa genera los ingresos que constituyen el sustento principal de las personas y las familias para garantizar su acceso a los bienes y servicios que satisfacen sus necesidades básicas.";
-			}}}}}}}}}}}}}}
+        options.title.text = indicador.nombre;
+        options.subtitle.text = 'Código: ' + indicador.id + ' - Fuente: ' + indicador.fuente;
+        options.xAxis.categories = dataAnio;
+        options.yAxis.title.text = indicador.nombre;
+        options.exporting.filename = 'Gráfica ' + indicador.nombre;
+        options.series[0].data = dataNumberIndicador;
 
 
-			msgDescription += "</p><p><strong>Nombre del indicador:</strong> "+indicador.nombre+"</p><p><strong>Fuente:</strong> "+indicador.fuente+"</p>";
-			$(".moduloDescripcion").html(msgDescription);
-		};
+        graficar();
+
+        //Conversión de arreglo a String y luego parseado a JSON
+        var jsonIndicador = JSON.parse(JSON.stringify(arrayJson));
+        
+        actualizarTabla(jsonIndicador);
+
+        msgDescription = "<p><strong>Contexto: </strong>"
+        if (indicador.tema == "1. Población y Demografía") {
+            msgDescription += "Cali Cómo Vamos monitorea anualmente los indicadores que conciernen a la información demográfica de la ciudad, brindando un reporte objetivo de las variaciones poblacionales.";
+        } else {
+            if (indicador.tema == "2. Pobreza y desigualdad") {
+                msgDescription += "Cali Cómo Vamos monitorea las principales variables y acciones que dan cuenta de la intervención a grupos poblacionales vulnerables, lo que es fundamental para lograr la equidad social.";
+            } else {
+                if (indicador.tema == "4. Educación") {
+                    msgDescription += "Este capítulo evalúa el comportamiento de la Educación Inicial Básica, Media y Superior a través de indicadores de cobertura y calidad en Cali.";
+                } else {
+                    if (indicador.tema == "6. Seguridad ciudadana") {
+                        msgDescription += "El programa Cali Cómo Vamos evalúa los cambios en la seguridad y convivencia de la ciudad, en función de las estadísticas de homicidios, muertes violentas, delitos de alto impacto, las denuncias por maltrato infantil, así como a través de los resultados de las principales estrategias de la Administración y la Policía en materia de seguridad y convivencia ciudadana.";
+                    } else {
+                        if (indicador.tema == "8. Medio ambiente") {
+                            msgDescription += "Cali Cómo Vamos monitorea anualmente el Ambiente de la ciudad en sus principales componentes: aire, agua, ruido, árboles, zonas verdes y zonas de protección.";
+                        } else {
+                            if (indicador.tema == "11. Cultura, turismo, recreación y deporte") {
+                                msgDescription += "La actividad cultural permite expandir el imaginario de las personas, explorar su potencial intelectual y artístico, así como puede contribuir a mejorar la convivencia. Es por ello que CCV monitorea indicadores de realización de eventos y programas que la promuevan.";
+                            } else {
+                                if (indicador.tema == "3. Salud") {
+                                    msgDescription += "Cali Cómo Vamos evalúa los cambios en la salud de los caleños, en función de indicadores de cobertura, mortalidad específica y calidad de los servicios médicos y de la salud pública en general.";
+                                } else {
+                                    if (indicador.tema == "9. Movilidad") {
+                                        msgDescription += "Este apartado se concentra en los principales componentes del tránsito vial, parque automotor, control, accidentalidad y en el principal proyecto de transporte de la ciudad, el Sistema Integrado de Transporte Masivo, MIO";
+                                    } else {
+                                        if (indicador.tema == "12. Participación y cultura ciudadana") {
+                                            msgDescription += "Cali Cómo vamos evalua anualmente las acciones o iniciativas que nacen a partir de la comunidad ciudadana con el fin de impulsar el desarrollo local.";
+                                        } else {
+                                            if (indicador.tema == "10. Espacio público") {
+                                                msgDescription += "La disponibilidad de Espacio Público de calidad es componente fundamental del Hábitat, al igual que la Vivienda y su entorno. Por ello, CCV le hace seguimiento desde la tasa de espacio público efectivo por habitante, los estándares internacionales y las obras para mejorarlo en cantidad y calidad para los caleños.";
+                                            } else {
+                                                if (indicador.tema == "7. Vivienda y Servicios públicos") {
+                                                    msgDescription += "La evaluación sobre la tenencia de vivienda digna por parte de los caleños, es abordada desde indicadores de déficit habitacional cuantitativo y cualitativo, además de los resultados de las estrategias de reducción de sus principales componentes.";
+                                                } else {
+                                                    if (indicador.tema == "5. Mercado laboral (Empleo)") {
+                                                        msgDescription += "La generación de empleo y empresa genera los ingresos que constituyen el sustento principal de las personas y las familias para garantizar su acceso a los bienes y servicios que satisfacen sus necesidades básicas.";
+                                                    } else {
+                                                        if (indicador.tema == "13. Finanzas y gestión pública") {
+                                                            msgDescription += "Este capítulo brinda un panorama general de las finanzas del municipio, haciendo seguimiento anual a sus ingresos, gastos, inversión y deuda. Una hacienda municipal sólida, sostenible y amplia representa flujo continuo de recursos para la inversión social de los caleños.";
+                                                        } else {
+                                                            if (indicador.tema == "14. Entorno económico") {
+                                                                msgDescription += "La generación de empleo y empresa genera los ingresos que constituyen el sustento principal de las personas y las familias para garantizar su acceso a los bienes y servicios que satisfacen sus necesidades básicas.";
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+
+        msgDescription += "</p><p><strong>Nombre del indicador:</strong> " + indicador.nombre + "</p><p><strong>Fuente:</strong> " + indicador.fuente + "</p>";
+        $(".moduloDescripcion").html(msgDescription);
+    };
 }
 
-function radioButton(){
-	var typeChar = $('input:radio[name=optionChart]:checked').attr('id');
-	var typeColor = $('input:radio[name=optionColor]:checked').attr('id');
-	var typeLabel = $('input:radio[name=optionLabel]:checked').attr('id');
+function graficaPersonalizada() {
+    var typeChar = $('input:radio[name=optionChart]:checked').attr('id');
+    var typeColor = $('input:radio[name=optionColor]:checked').attr('id');
+    var typeLabel = $('input:radio[name=optionLabel]:checked').attr('id');
 
-	if(typeChar=="TypeChart1"){
-	    options.chart.type = 'column';
-	}else{
-		if(typeChar=="TypeChart2"){
-			options.chart.type = 'bar';
-		}else{
-			if(typeChar=="TypeChart3"){
-				options.chart.type = 'line';
-			}else{
-				options.chart.type = 'spline';
-			}
-		}
-	}
+    if (typeChar == "TypeChart1") {
+        options.chart.type = 'column';
+    } else {
+        if (typeChar == "TypeChart2") {
+            options.chart.type = 'bar';
+        } else {
+            if (typeChar == "TypeChart3") {
+                options.chart.type = 'line';
+            } else {
+                options.chart.type = 'spline';
+            }
+        }
+    }
 
-	if(typeColor=="TypeColor1"){
-		options.series[0].color = '#FFC902';
-	}else{
-		if(typeColor=="TypeColor2"){
-			options.series[0].color = '#06819E';
-		}else{
-			if(typeColor=="TypeColor3"){
-				options.series[0].color = '#EC0234';
-			}else{
-				options.series[0].color = '#365989';
-			}
-		}
-	}
+    if (typeColor == "TypeColor1") {
+        options.series[0].color = '#FFC902';
+    } else {
+        if (typeColor == "TypeColor2") {
+            options.series[0].color = '#06819E';
+        } else {
+            if (typeColor == "TypeColor3") {
+                options.series[0].color = '#EC0234';
+            } else {
+                options.series[0].color = '#365989';
+            }
+        }
+    }
 
 
-	if(typeLabel=="TypeLabel1"){
-		options.series[0].dataLabels.enabled = true;
-	}else{
-		options.series[0].dataLabels.enabled = false;
-	}
+    if (typeLabel == "TypeLabel1") {
+        options.series[0].dataLabels.enabled = true;
+    } else {
+        options.series[0].dataLabels.enabled = false;
+    }
 
-	graficar();
+    graficar();
 }
 
 
-function graficar(){
-	var chart = new Highcharts.Chart(options);
+function graficar() {
+    var chart = new Highcharts.Chart(options);
+}
+
+
+function actualizarTabla(jsonIndicador) {
+    //Comprueba si el div de la tabla tiene contenido, si es así destruye la tabla
+    if ( $('#tablaDatosDesktop').html() !== "" |  $('#tablaDatosMobile').html() !== "") {
+        $('#tablaDatosDesktop').columns('destroy');
+        $('#tablaDatosMobile').columns('destroy');
+    }
+
+    //Crea la tabla de la consulta correspondiente
+    $('#tablaDatosDesktop').columns({
+        data: jsonIndicador,
+        showRows: [5, 10]
+    });
+
+        //Crea la tabla de la consulta correspondiente
+    $('#tablaDatosMobile').columns({
+        data: jsonIndicador,
+        showRows: [5, 10],
+        size: 3,
+        search: false
+    });
 }
 
 
 
 $(function() {
-	//var inputSearch = $("[data-input='busquedaIndicador']");
-	//var buttonSearch = $("[data-button='search']");
-	//$(button).on("click", resultadoBoton);
+    //var inputSearch = $("[data-input='busquedaIndicador']");
+    //var buttonSearch = $("[data-button='search']");
+    //$(button).on("click", resultadoBoton);
 
 
-	//var consultaDiccionario = urlConsulta+apyKeyDiccionario+'&q={"tema":"'+tema+'"}'+'&limit=3';
-	var consultaDiccionario = urlConsulta+apyKeyDiccionario+"&limit=1000";
-	$.getJSON(consultaDiccionario, getNombreIndicadores);
+    //var consultaDiccionario = urlConsulta+apyKeyDiccionario+'&q={"tema":"'+tema+'"}'+'&limit=3';
+    var consultaDiccionario = urlConsulta + apyKeyDiccionario + "&limit=1000";
+    $.getJSON(consultaDiccionario, getNombreIndicadores);
 
-	function getNombreIndicadores(data){
-		var datos = data.result.records;
-		$.each( datos , function( i, item ) {
-			var dato = datos[i];
-			var vinculoIndicadores = '<a onclick="getIndicador(\''+dato.id+'\',\''+dato.Indicador+'\',\''+dato.fuente+'\',\''+dato.unidad+'\',\''+dato.tema+'\')"><i>'+dato.Indicador+'</i></a>'
+    function getNombreIndicadores(data) {
+        var datos = data.result.records;
+        $.each(datos, function(i, item) {
+            var dato = datos[i];
+            var vinculoIndicadores = '<a onclick="getIndicador(\'' + dato.id + '\',\'' + dato.Indicador + '\',\'' + dato.fuente + '\',\'' + dato.unidad + '\',\'' + dato.tema + '\')"><i>' + dato.Indicador + '</i></a>'
 
-			if(dato.tema=="1. Población y Demografía"){
-				$("[data-Indicador='poblacion']").append(vinculoIndicadores);
-			}
-			if(dato.tema=="2. Pobreza y desigualdad"){
-				$("[data-Indicador='pobreza']").append(vinculoIndicadores);
-			}
-			if(dato.tema=="4. Educación"){
-				$("[data-Indicador='educacion']").append(vinculoIndicadores);
-			}
-			if(dato.tema=="6. Seguridad ciudadana"){
-				$("[data-Indicador='seguridad']").append(vinculoIndicadores);
-			}
-			if(dato.tema=="8. Medio ambiente"){
-				$("[data-Indicador='ambiente']").append(vinculoIndicadores);
-			}
-			if(dato.tema=="11. Cultura, turismo, recreación y deporte"){
-				$("[data-Indicador='cultura']").append(vinculoIndicadores);
-			}
-			if(dato.tema=="3. Salud"){
-				$("[data-Indicador='salud']").append(vinculoIndicadores);
-			}
-			if(dato.tema=="9. Movilidad"){
-				$("[data-Indicador='movilidad']").append(vinculoIndicadores);
-			}
-			if(dato.tema=="12. Participación y cultura ciudadana"){
-				$("[data-Indicador='participacion']").append(vinculoIndicadores);
-			}
-			if(dato.tema=="10. Espacio público"){
-				$("[data-Indicador='espacio']").append(vinculoIndicadores);
-			}
-			if(dato.tema=="7. Vivienda y Servicios públicos"){
-				$("[data-Indicador='vivienda']").append(vinculoIndicadores);
-			}
-			if(dato.tema=="5. Mercado laboral (Empleo)"){
-				$("[data-Indicador='empleo']").append(vinculoIndicadores);
-			}
-			if(dato.tema=="13. Finanzas y gestión pública"){
-				$("[data-Indicador='finanzas']").append(vinculoIndicadores);
-			}
-			if(dato.tema=="14. Entorno económico"){
-				$("[data-Indicador='economia']").append(vinculoIndicadores);
-			}
-	   	 })
-	};
+            if (dato.tema == "1. Población y Demografía") {
+                $("[data-Indicador='poblacion']").append(vinculoIndicadores);
+            }
+            if (dato.tema == "2. Pobreza y desigualdad") {
+                $("[data-Indicador='pobreza']").append(vinculoIndicadores);
+            }
+            if (dato.tema == "4. Educación") {
+                $("[data-Indicador='educacion']").append(vinculoIndicadores);
+            }
+            if (dato.tema == "6. Seguridad ciudadana") {
+                $("[data-Indicador='seguridad']").append(vinculoIndicadores);
+            }
+            if (dato.tema == "8. Medio ambiente") {
+                $("[data-Indicador='ambiente']").append(vinculoIndicadores);
+            }
+            if (dato.tema == "11. Cultura, turismo, recreación y deporte") {
+                $("[data-Indicador='cultura']").append(vinculoIndicadores);
+            }
+            if (dato.tema == "3. Salud") {
+                $("[data-Indicador='salud']").append(vinculoIndicadores);
+            }
+            if (dato.tema == "9. Movilidad") {
+                $("[data-Indicador='movilidad']").append(vinculoIndicadores);
+            }
+            if (dato.tema == "12. Participación y cultura ciudadana") {
+                $("[data-Indicador='participacion']").append(vinculoIndicadores);
+            }
+            if (dato.tema == "10. Espacio público") {
+                $("[data-Indicador='espacio']").append(vinculoIndicadores);
+            }
+            if (dato.tema == "7. Vivienda y Servicios públicos") {
+                $("[data-Indicador='vivienda']").append(vinculoIndicadores);
+            }
+            if (dato.tema == "5. Mercado laboral (Empleo)") {
+                $("[data-Indicador='empleo']").append(vinculoIndicadores);
+            }
+            if (dato.tema == "13. Finanzas y gestión pública") {
+                $("[data-Indicador='finanzas']").append(vinculoIndicadores);
+            }
+            if (dato.tema == "14. Entorno económico") {
+                $("[data-Indicador='economia']").append(vinculoIndicadores);
+            }
+        })
+    };
 
 
 

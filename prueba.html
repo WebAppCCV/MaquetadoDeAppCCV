@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
-
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
     <title>Prueba Listas</title>
     <!-- Bootstrap Core CSS -->
@@ -13,178 +13,144 @@
     <link href="dist/css/sb-admin-2.css" rel="stylesheet">
     <!-- Custom Fonts -->
     <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-    
     <link href="dist/css/IconAppCCV.css" rel="stylesheet" type="text/css">
-    <link href="dist/css/jquery.dynatable.css" rel="stylesheet" type="text/css">
-
+    <link href="dist/css/clean.css" rel="stylesheet" type="text/css">
 </head>
+
 <body>
-	<div class="container">
-
-		<div class="tipoDeGrafica">
-			<div class="btn" data-toggle="buttons">
-			  <label class="btn btn-default active">
-			    <input type="radio" name="optionChart" id="TypeChart1" autocomplete="off" checked>
-			     	<span><img src="Imagen_1.png"></span>
-			  </label>
-			  <label class="btn btn-default">
-			    <input type="radio" name="optionChart" id="TypeChart2" autocomplete="off">
-			    	<span><img src="Imagen_2.png"></span>
-			  </label>
-			  <label class="btn btn-default">
-			    <input type="radio" name="optionChart" id="TypeChart3" autocomplete="off">
-			    	<span><img src="Imagen_3.png"></span>
-			  </label>
-			  <label class="btn btn-default">
-			    <input type="radio" name="optionChart" id="TypeChart4" autocomplete="off">
-			    	<span><img src="Imagen_4.png"></span>
-			  </label>
-			</div>
-		</div>
-
-		<div class="colorGrafica">
-
-			<div class="btn" data-toggle="buttons">
-				<label class="btn btn-colorTols-orage active">
-				    <input type="radio" name="optionColor" id="TypeColor1" autocomplete="off" checked>
-				     	LO QUE SEA COLOR
-				</label>
-				<label class="btn btn-colorTols-verdeAzul">
-				    <input type="radio" name="optionColor" id="TypeColor2" autocomplete="off">
-				     	LO QUE SEA COLOR
-				</label>
-				<label class="btn btn-colorTols-red">
-				    <input type="radio" name="optionColor" id="TypeColor3" autocomplete="off">
-				     	LO QUE SEA COLOR
-				</label>
-				<label class="btn btn-colorTols-blueCCV">
-				    <input type="radio" name="optionColor" id="TypeColor4" autocomplete="off">
-				     	LO QUE SEA COLOR
-				</label>
-		    </div>
-		</div>
-
-		<div class="dataLabelGrafica">
-			<div class="btn" data-toggle="buttons">
-				<label class="btn btn-default active">
-				    <input type="radio" name="optionLabel" id="TypeLabel1" autocomplete="off" checked>
-				     	Si
-				</label>
-				<label class="btn btn-default">
-				    <input type="radio" name="optionLabel" id="TypeLabel2" autocomplete="off">
-				     	No
-				</label>
-		    </div>
-		</div>
-
-		<div class="boton">
-			<input type="button" onclick="radioButton()" value="Graficar">
-		</div>
-
-
-
-
-		<!--
+    <div class="container">
+        <div class="tipoDeGrafica">
+            <div class="btn" data-toggle="buttons">
+                <label class="btn btn-default active">
+                    <input type="radio" name="optionChart" id="TypeChart1" autocomplete="off" checked>
+                    <span><img src="Imagen_1.png"></span>
+                </label>
+                <label class="btn btn-default">
+                    <input type="radio" name="optionChart" id="TypeChart2" autocomplete="off">
+                    <span><img src="Imagen_2.png"></span>
+                </label>
+                <label class="btn btn-default">
+                    <input type="radio" name="optionChart" id="TypeChart3" autocomplete="off">
+                    <span><img src="Imagen_3.png"></span>
+                </label>
+                <label class="btn btn-default">
+                    <input type="radio" name="optionChart" id="TypeChart4" autocomplete="off">
+                    <span><img src="Imagen_4.png"></span>
+                </label>
+            </div>
+        </div>
+        <div class="colorGrafica">
+            <div class="btn" data-toggle="buttons">
+                <label class="btn btn-colorTols-orage active">
+                    <input type="radio" name="optionColor" id="TypeColor1" autocomplete="off" checked> LO QUE SEA COLOR
+                </label>
+                <label class="btn btn-colorTols-verdeAzul">
+                    <input type="radio" name="optionColor" id="TypeColor2" autocomplete="off"> LO QUE SEA COLOR
+                </label>
+                <label class="btn btn-colorTols-red">
+                    <input type="radio" name="optionColor" id="TypeColor3" autocomplete="off"> LO QUE SEA COLOR
+                </label>
+                <label class="btn btn-colorTols-blueCCV">
+                    <input type="radio" name="optionColor" id="TypeColor4" autocomplete="off"> LO QUE SEA COLOR
+                </label>
+            </div>
+        </div>
+        <div class="dataLabelGrafica">
+            <div class="btn" data-toggle="buttons">
+                <label class="btn btn-default active">
+                    <input type="radio" name="optionLabel" id="TypeLabel1" autocomplete="off" checked> Si
+                </label>
+                <label class="btn btn-default">
+                    <input type="radio" name="optionLabel" id="TypeLabel2" autocomplete="off"> No
+                </label>
+            </div>
+        </div>
+        <div class="boton">
+            <input type="button" onclick="radioButton()" value="Graficar">
+        </div>
+        <!--
 		<form action="">
 			<input type="submit" data-button="add" value="Población y demografía" > 
 		</form>
 		-->
-
-		<nav>
-		    <div class="navbar-default sidebar" role="navigation">
-		        <div class="sidebar-nav navbar-collapse">
-		            <ul class="nav navMenu" id="side-menu">
-		            	<li>
-		                    <a href="index.html">Inicio</a>
-		                </li>
-		                <li>
-		                    <a href="#">Población y Demografía</a>
-		                    <ul class="nav navMenu nav-second-level">
-		                        <li data-Indicador="poblacion"></li>
-		                    </ul>
-		                    <!-- /.nav-second-level -->
-		                </li>
-		                <li>
-		                    <a href="#">Salud</a>
-		                    <ul class="nav navMenu nav-second-level">
-		                        <li data-Indicador="salud"></li>
-		                    </ul>
-		                    <!-- /.nav-second-level -->
-		                </li>
-		                <li>
-		                    <a href="#">Educación</a>
-		                    <ul class="nav navMenu nav-second-level">
-		                        <li data-Indicador="educacion"></li>
-		                    </ul>
-		                    <!-- /.nav-second-level -->
-		                </li>
-		            </ul>
-		        </div>
-		        <!-- /.sidebar-collapse -->
-		    </div>
-		    <!-- /.navbar-static-side -->
-		</nav>
-
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		
-	<div id="containerGraph" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
-
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-
-	<div id="containerTable">
-		<table id="my-final-table">
-			<thead>
-    			<th>ANIO</th>
-    			<th>0-PO-27</th>
-  			</thead>
-  			<tbody>
-  			</tbody>
-		</table>
-
-	</div>
-	
-	</div>
-
-	<!-- jQuery -->
-	<script src="jquery/jquery.min.js"></script>
-	<!-- Bootstrap Core JavaScript -->
-	<script src="bootstrap/js/bootstrap.min.js"></script>
-	<!-- Metis Menu Plugin JavaScript -->
-	<script src="metisMenu/metisMenu.js"></script>
-	<!-- Custom Theme JavaScript -->
-	<script src="dist/js/appCCV-js.js"></script>
-	<!-- JavaScript de prueba -->
-	<script src="prueba2.js"></script>
-	<!-- Highchart para graficar -->
-	<script src="https://code.highcharts.com/highcharts.js"></script>
-	<!-- Highchart para descargar -->
-	<script src="https://code.highcharts.com/modules/exporting.js"></script>
-	<!-- DynaTables JS-->
-	<script src="dist/js/jquery.dynatable.js"></script>
-
-
+        <nav>
+            <div class="navbar-default sidebar" role="navigation">
+                <div class="sidebar-nav navbar-collapse">
+                    <ul class="nav navMenu" id="side-menu">
+                        <li>
+                            <a href="index.html">Inicio</a>
+                        </li>
+                        <li>
+                            <a href="#">Población y Demografía</a>
+                            <ul class="nav navMenu nav-second-level">
+                                <li data-Indicador="poblacion"></li>
+                            </ul>
+                            <!-- /.nav-second-level -->
+                        </li>
+                        <li>
+                            <a href="#">Salud</a>
+                            <ul class="nav navMenu nav-second-level">
+                                <li data-Indicador="salud"></li>
+                            </ul>
+                            <!-- /.nav-second-level -->
+                        </li>
+                        <li>
+                            <a href="#">Educación</a>
+                            <ul class="nav navMenu nav-second-level">
+                                <li data-Indicador="educacion"></li>
+                            </ul>
+                            <!-- /.nav-second-level -->
+                        </li>
+                    </ul>
+                </div>
+                <!-- /.sidebar-collapse -->
+            </div>
+            <!-- /.navbar-static-side -->
+        </nav>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <div id="containerGraph" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <div id="columns"></div>
+    </div>
+    <!-- jQuery -->
+    <script src="jquery/jquery.min.js"></script>
+    <!-- Bootstrap Core JavaScript -->
+    <script src="bootstrap/js/bootstrap.min.js"></script>
+    <!-- Metis Menu Plugin JavaScript -->
+    <script src="metisMenu/metisMenu.js"></script>
+    <!-- Custom Theme JavaScript -->
+    <script src="dist/js/appCCV-js.js"></script>
+    <!-- JavaScript de prueba -->
+    <script src="prueba2.js"></script>
+    <!-- Highchart para graficar -->
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+    <!-- Highchart para descargar -->
+    <script src="https://code.highcharts.com/modules/exporting.js"></script>
+    <!-- Columns JS-->
+    <script src="dist/js/jquery.columns.min.js"></script>
 </body>
+
 </html>
