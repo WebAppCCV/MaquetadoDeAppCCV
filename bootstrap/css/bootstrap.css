@@ -3168,12 +3168,40 @@ fieldset[disabled] .btn-default.focus {
   background-color: #5172A0;
   border: 0px;
 }
+
+
 .btn-navCCV:focus,
 .btn-navCCV.focus,
 .btn-navCCV:hover,
 .btn-navCCV.hover {
   color: #fff;
 }
+
+/*  BOTÓN COLOR VERDECSV  */
+.btn-greenCSV {
+  color: #fff;
+  background-color: #9BB120;
+}
+.btn-greenCSV:focus,
+.btn-greenCSV.focus {
+  color: #fff;
+  background-color: #7D910A;
+}
+.btn-greenCSV:hover {
+  color: #fff;
+  background-color: #7D910A;
+  border-color: #adadad;
+}
+.btn-greenCSV:active,
+.btn-greenCSV.active,
+.open > .dropdown-toggle.btn-greenCSV {
+  color: #fff;
+  background-color: #596800;
+  border-width: 3px;
+  border-color: #adadad;
+}
+
+
 /*  BOTÓN COLOR ORANGE  */
 .btn-colorTols-orage {
   color: #fff;
@@ -3361,6 +3389,7 @@ fieldset[disabled] .btn-primary.focus {
   color: #fff;
   background-color: #398439;
   border-color: #255625;
+  border-width: 3px;
 }
 .btn-success:active,
 .btn-success.active,
@@ -3475,6 +3504,7 @@ fieldset[disabled] .btn-info.focus {
   color: #fff;
   background-color: #d58512;
   border-color: #985f0d;
+  border-width: 3px;
 }
 .btn-warning:active,
 .btn-warning.active,
@@ -3532,6 +3562,7 @@ fieldset[disabled] .btn-warning.focus {
   color: #fff;
   background-color: #ac2925;
   border-color: #761c19;
+  border-width: 3px;
 }
 .btn-danger:active,
 .btn-danger.active,

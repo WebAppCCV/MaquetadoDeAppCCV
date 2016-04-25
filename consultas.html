@@ -9,13 +9,16 @@
     <link href="bootstrap/css/bootstrap.css" rel="stylesheet">
     <!-- MetisMenu CSS -->
     <link href="metisMenu/metisMenu.css" rel="stylesheet">
-    <!-- Custom CSS -->
+    <!-- Template CSS -->
     <link href="dist/css/sb-admin-2.css" rel="stylesheet">
-    <!-- Custom Fonts -->
+    <!-- Fonts Awasome CSS -->
     <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <!-- Fonts IconAppCCV CSS -->
     <link href="dist/css/IconAppCCV.css" rel="stylesheet" type="text/css">
+    <!-- Columns CSS -->
     <link href="dist/css/clean.css" rel="stylesheet" type="text/css">
-
+    <!-- Autocomplete CSS -->
+    <link href="dist/css/easy-autocomplete.css" rel="stylesheet" type="text/css">
 </head>
 
 <body>
@@ -48,10 +51,9 @@
                         <ul class="nav navMenu" id="side-menu">
                             <li class="sidebar-search">
                                 <div class="input-group custom-search-form">
-                                    <input type="text" class="form-control" placeholder="Buscar indicador">
+                                    <input id="search_indicadores" class="form-control" placeholder="Buscar indicador">
                                     <span class="input-group-btn">
-                                    <button class="btn btn-default" type="button" rel="popover" data-container="body" data-toggle="popover" data-placement="bottom" title="<i><strong>Búscar indicador específico</strong></i>" data-content="<i>Ésta herramienta te permite buscar de manera mas ágil el indicador que deseas consultar</i>">
-                                        <i class="iconccv icon-Icon_Search"></i>
+                                    <button class="btn btn-default" type="button" rel="popover" data-container="body" data-toggle="popover" data-placement="bottom" title="<i><strong>Búscar indicador específico</strong></i>" data-content="<i>Ésta herramienta te permite buscar de manera mas ágil el indicador que deseas consultar</i>" onclick="searchIndicador()"><i class="iconccv icon-Icon_Search"></i>
                                     </button>
                                 </span>
                                 </div>
@@ -186,7 +188,6 @@
                                 </div>
                                 <div class="panel-body">
                                     <div class="moduloGrafico">
-                                        <div id="containerGraph "></div>
                                         <div id="containerGraph" style="height: 400px; margin: 0 auto"></div>
                                         <!-- GRAFICA DEL INDICADOR -->
                                     </div>
@@ -271,7 +272,48 @@
                                         </div>
                                         <div class="tab-pane fade" id="descarga">
                                             <div class="moduloDescarga">
-                                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cum obcaecati assumenda quae dolore neque excepturi quas odio accusamus, quam nam natus ab dolor aspernatur deserunt vitae consectetur itaque beatae ex.
+                                                <h5>Pulsa para descargar los datos</h5>
+                                                <div class="row">
+                                                    <div class="col-md-12 col-lg-6">
+                                                        <h6>Archivos tipo imágen</h6>
+                                                        <div class="btn-group btn-group-justified" role="group">
+                                                            <div class="btn-group" role="group">
+                                                                <button type="button" class="btn btn-colorTols-blueCCV" onclick="exportarDatos('image/jpeg')">JPG</button>
+                                                            </div>
+                                                            <div class="btn-group" role="group">
+                                                                <button type="button" class="btn btn-colorTols-verdeAzul" onclick="exportarDatos('image/png')">PNG</button>
+                                                            </div>
+                                                            <div class="btn-group" role="group">
+                                                                <button type="button" class="btn btn-danger" onclick="exportarDatos('application/pdf')">PDF</button>
+                                                            </div>
+                                                            <div class="btn-group" role="group">
+                                                                <button type="button" class="btn btn-warning" onclick="exportarDatos('image/svg+xml')">SVG</button>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-12 col-lg-6">
+                                                        <h6>Archivos tipo hoja de calculo</h6>
+                                                        <div class="btn-group btn-group-justified" role="group">
+                                                            <div class="btn-group" role="group">
+                                                                <button type="button" class="btn btn-success" onclick="exportarDatos('application/vnd.ms-excel')">XLS</button>
+                                                            </div>
+                                                            <div class="btn-group" role="group">
+                                                                <button type="button" class="btn btn-greenCSV" onclick="exportarDatos('text/csv')">CSV</button>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-12">
+                                                        <h6>Banco de datos completo (Todos los indicadores) - Ckan</h6>
+                                                        <div class="btn-group btn-group-justified" role="group">
+                                                            <div class="btn-group" role="group">
+                                                                <button type="button" class="btn btn-default" href="http://goo.gl/W6BUlN">Diccionario de datos</button>
+                                                            </div>
+                                                            <div class="btn-group" role="group">
+                                                                <a type="button" class="btn btn-default" href="http://goo.gl/4Wtcf2">Recopilatorio de datos</a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
@@ -293,12 +335,11 @@
                                 <div class="panel-body">
                                     <div class="tab-content">
                                         <div class="tab-pane fade in active" id="tab-dropdown1">
-                                            <div class="moduloDescripcion">
-                                            </div>
+                                            <div class="moduloDescripcion"></div>
                                         </div>
                                         <div class="tab-pane fade" id="tab-dropdown2">
                                             <div class="moduloFiltro">
-                                                <h4>Comparar datos</h4>
+                                                <h4>Personalizar gráfica</h4>
                                                 <div class="row">
                                                     <div class="col-md-12">
                                                         <h5>Activar etiqueta de datos</h5>
@@ -366,7 +407,48 @@
                                         </div>
                                         <div class="tab-pane fade" id="tab-dropdown4">
                                             <div class="moduloDescarga">
-                                                <h4>Descarga de datos</h4> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Id fugiat recusandae inventore iste animi, molestiae iusto ipsum nulla.
+                                                <h4>Descarga de datos</h4>
+                                                <div class="row">
+                                                    <div class="col-md-12 col-lg-6">
+                                                        <h6>Archivos tipo imágen</h6>
+                                                        <div class="btn-group btn-group-justified" role="group">
+                                                            <div class="btn-group" role="group">
+                                                                <button type="button" class="btn btn-colorTols-blueCCV" onclick="exportarDatos('image/jpeg')">JPG</button>
+                                                            </div>
+                                                            <div class="btn-group" role="group">
+                                                                <button type="button" class="btn btn-colorTols-verdeAzul" onclick="exportarDatos('image/png')">PNG</button>
+                                                            </div>
+                                                            <div class="btn-group" role="group">
+                                                                <button type="button" class="btn btn-danger" onclick="exportarDatos('application/pdf')">PDF</button>
+                                                            </div>
+                                                            <div class="btn-group" role="group">
+                                                                <button type="button" class="btn btn-warning" onclick="exportarDatos('image/svg+xml')">SVG</button>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-12 col-lg-6">
+                                                        <h6>Archivos tipo hoja de calculo</h6>
+                                                        <div class="btn-group btn-group-justified" role="group">
+                                                            <div class="btn-group" role="group">
+                                                                <button type="button" class="btn btn-success" onclick="exportarDatos('application/vnd.ms-excel')">XLS</button>
+                                                            </div>
+                                                            <div class="btn-group" role="group">
+                                                                <button type="button" class="btn btn-greenCSV" onclick="exportarDatos('text/csv')">CSV</button>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-12">
+                                                        <h6>Banco de datos completo (Todos los indicadores) - Ckan</h6>
+                                                        <div class="btn-group btn-group-justified" role="group">
+                                                            <div class="btn-group" role="group">
+                                                                <button type="button" class="btn btn-default" href="http://goo.gl/W6BUlN">Diccionario de datos</button>
+                                                            </div>
+                                                            <div class="btn-group" role="group">
+                                                                <a type="button" class="btn btn-default" href="http://goo.gl/4Wtcf2">Recopilatorio de datos</a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
@@ -407,13 +489,24 @@
     <script src="dist/js/appCCV-js.js"></script>
     <!-- JavaScript de prueba -->
     <script src="prueba.js"></script>
-    <!-- Highchart para graficar -->
-    <script src="https://code.highcharts.com/highcharts.js"></script>
-    <!-- Highchart para descargar -->
-    <script src="https://code.highcharts.com/modules/exporting.js"></script>
     <!-- Columns JS-->
     <script src="dist/js/jquery.columns.min.js"></script>
-
+    <!-- Autocomplete JS-->
+    <script src="dist/js/jquery.easy-autocomplete.min.js"></script>
+    <!-- Highchart para graficar -->
+    <script src="dist/js/highchart-export/highcharts.js"></script>
+    <!-- Módulo highchart para descargar los datos-->
+    <script src="dist/js/highchart-export/exporting.js"></script>
+    <!-- Highchart para descargar imágenes rasterizadas JPG y PNG -->
+    <script src="dist/js/highchart-export/rgbcolor.js"></script>
+    <script src="dist/js/highchart-export/StackBlur.js"></script>
+    <script src="dist/js/highchart-export/canvg.js"></script>
+    <!-- Highchart para descargar PDF -->
+    <script src="dist/js/highchart-export/jspdf.min.js"></script>
+    <!-- Highchart para descargar CSV y XLS-->
+    <script src="dist/js/highchart-export/export-csv.js"></script>
+    <!-- Módulo para habilitar las opciones de descarga CSV-->
+    <script src="dist/js/highchart-export/highcharts-export-clientside.js"></script>
     <!-- Script para activar por popover = Ayuda contextual -->
     <script>
     $('[rel="popover"]').popover({

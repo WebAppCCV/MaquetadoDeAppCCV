@@ -46,7 +46,8 @@ options = {
         align: 'center'
     },
     exporting: {
-        filename: ''
+        filename: '',
+        enabled:false
     },
     series: [{
         name: 'Cali',
@@ -110,48 +111,50 @@ function getIndicador($id, $indicador, $fuente, $unidad, $tema) {
         
         actualizarTabla(jsonIndicador);
 
-        msgDescription = "<p><strong>Contexto: </strong>"
+        msgDescription = "<p><strong>Nombre del indicador:</strong> " + indicador.nombre + "</p><p><strong>Fuente:</strong> " + indicador.fuente + "</p><p><strong>Tema:</strong> "+ indicador.tema + "</p>";
+
+        msgDescription += "<p><strong>Contexto: </strong>"
         if (indicador.tema == "1. Población y Demografía") {
-            msgDescription += "Cali Cómo Vamos monitorea anualmente los indicadores que conciernen a la información demográfica de la ciudad, brindando un reporte objetivo de las variaciones poblacionales.";
+            msgDescription += "Cali Cómo Vamos monitorea anualmente los indicadores que conciernen a la información demográfica de la ciudad, brindando un reporte objetivo de las variaciones poblacionales.</p>";
         } else {
             if (indicador.tema == "2. Pobreza y desigualdad") {
-                msgDescription += "Cali Cómo Vamos monitorea las principales variables y acciones que dan cuenta de la intervención a grupos poblacionales vulnerables, lo que es fundamental para lograr la equidad social.";
+                msgDescription += "Cali Cómo Vamos monitorea las principales variables y acciones que dan cuenta de la intervención a grupos poblacionales vulnerables, lo que es fundamental para lograr la equidad social.</p>";
             } else {
                 if (indicador.tema == "4. Educación") {
-                    msgDescription += "Este capítulo evalúa el comportamiento de la Educación Inicial Básica, Media y Superior a través de indicadores de cobertura y calidad en Cali.";
+                    msgDescription += "Este capítulo evalúa el comportamiento de la Educación Inicial Básica, Media y Superior a través de indicadores de cobertura y calidad en Cali.</p>";
                 } else {
                     if (indicador.tema == "6. Seguridad ciudadana") {
-                        msgDescription += "El programa Cali Cómo Vamos evalúa los cambios en la seguridad y convivencia de la ciudad, en función de las estadísticas de homicidios, muertes violentas, delitos de alto impacto, las denuncias por maltrato infantil, así como a través de los resultados de las principales estrategias de la Administración y la Policía en materia de seguridad y convivencia ciudadana.";
+                        msgDescription += "El programa Cali Cómo Vamos evalúa los cambios en la seguridad y convivencia de la ciudad, en función de las estadísticas de homicidios, muertes violentas, delitos de alto impacto, las denuncias por maltrato infantil, así como a través de los resultados de las principales estrategias de la Administración y la Policía en materia de seguridad y convivencia ciudadana.</p>";
                     } else {
                         if (indicador.tema == "8. Medio ambiente") {
-                            msgDescription += "Cali Cómo Vamos monitorea anualmente el Ambiente de la ciudad en sus principales componentes: aire, agua, ruido, árboles, zonas verdes y zonas de protección.";
+                            msgDescription += "Cali Cómo Vamos monitorea anualmente el Ambiente de la ciudad en sus principales componentes: aire, agua, ruido, árboles, zonas verdes y zonas de protección.</p>";
                         } else {
                             if (indicador.tema == "11. Cultura, turismo, recreación y deporte") {
-                                msgDescription += "La actividad cultural permite expandir el imaginario de las personas, explorar su potencial intelectual y artístico, así como puede contribuir a mejorar la convivencia. Es por ello que CCV monitorea indicadores de realización de eventos y programas que la promuevan.";
+                                msgDescription += "La actividad cultural permite expandir el imaginario de las personas, explorar su potencial intelectual y artístico, así como puede contribuir a mejorar la convivencia. Es por ello que CCV monitorea indicadores de realización de eventos y programas que la promuevan.</p>";
                             } else {
                                 if (indicador.tema == "3. Salud") {
-                                    msgDescription += "Cali Cómo Vamos evalúa los cambios en la salud de los caleños, en función de indicadores de cobertura, mortalidad específica y calidad de los servicios médicos y de la salud pública en general.";
+                                    msgDescription += "Cali Cómo Vamos evalúa los cambios en la salud de los caleños, en función de indicadores de cobertura, mortalidad específica y calidad de los servicios médicos y de la salud pública en general.</p>";
                                 } else {
                                     if (indicador.tema == "9. Movilidad") {
-                                        msgDescription += "Este apartado se concentra en los principales componentes del tránsito vial, parque automotor, control, accidentalidad y en el principal proyecto de transporte de la ciudad, el Sistema Integrado de Transporte Masivo, MIO";
+                                        msgDescription += "Este apartado se concentra en los principales componentes del tránsito vial, parque automotor, control, accidentalidad y en el principal proyecto de transporte de la ciudad, el Sistema Integrado de Transporte Masivo, MIO.</p>";
                                     } else {
                                         if (indicador.tema == "12. Participación y cultura ciudadana") {
-                                            msgDescription += "Cali Cómo vamos evalua anualmente las acciones o iniciativas que nacen a partir de la comunidad ciudadana con el fin de impulsar el desarrollo local.";
+                                            msgDescription += "Cali Cómo vamos evalua anualmente las acciones o iniciativas que nacen a partir de la comunidad ciudadana con el fin de impulsar el desarrollo local.</p>";
                                         } else {
                                             if (indicador.tema == "10. Espacio público") {
-                                                msgDescription += "La disponibilidad de Espacio Público de calidad es componente fundamental del Hábitat, al igual que la Vivienda y su entorno. Por ello, CCV le hace seguimiento desde la tasa de espacio público efectivo por habitante, los estándares internacionales y las obras para mejorarlo en cantidad y calidad para los caleños.";
+                                                msgDescription += "La disponibilidad de Espacio Público de calidad es componente fundamental del Hábitat, al igual que la Vivienda y su entorno. Por ello, CCV le hace seguimiento desde la tasa de espacio público efectivo por habitante, los estándares internacionales y las obras para mejorarlo en cantidad y calidad para los caleños.</p>";
                                             } else {
                                                 if (indicador.tema == "7. Vivienda y Servicios públicos") {
-                                                    msgDescription += "La evaluación sobre la tenencia de vivienda digna por parte de los caleños, es abordada desde indicadores de déficit habitacional cuantitativo y cualitativo, además de los resultados de las estrategias de reducción de sus principales componentes.";
+                                                    msgDescription += "La evaluación sobre la tenencia de vivienda digna por parte de los caleños, es abordada desde indicadores de déficit habitacional cuantitativo y cualitativo, además de los resultados de las estrategias de reducción de sus principales componentes.</p>";
                                                 } else {
                                                     if (indicador.tema == "5. Mercado laboral (Empleo)") {
-                                                        msgDescription += "La generación de empleo y empresa genera los ingresos que constituyen el sustento principal de las personas y las familias para garantizar su acceso a los bienes y servicios que satisfacen sus necesidades básicas.";
+                                                        msgDescription += "La generación de empleo y empresa genera los ingresos que constituyen el sustento principal de las personas y las familias para garantizar su acceso a los bienes y servicios que satisfacen sus necesidades básicas.</p>";
                                                     } else {
                                                         if (indicador.tema == "13. Finanzas y gestión pública") {
-                                                            msgDescription += "Este capítulo brinda un panorama general de las finanzas del municipio, haciendo seguimiento anual a sus ingresos, gastos, inversión y deuda. Una hacienda municipal sólida, sostenible y amplia representa flujo continuo de recursos para la inversión social de los caleños.";
+                                                            msgDescription += "Este capítulo brinda un panorama general de las finanzas del municipio, haciendo seguimiento anual a sus ingresos, gastos, inversión y deuda. Una hacienda municipal sólida, sostenible y amplia representa flujo continuo de recursos para la inversión social de los caleños.</p>";
                                                         } else {
                                                             if (indicador.tema == "14. Entorno económico") {
-                                                                msgDescription += "La generación de empleo y empresa genera los ingresos que constituyen el sustento principal de las personas y las familias para garantizar su acceso a los bienes y servicios que satisfacen sus necesidades básicas.";
+                                                                msgDescription += "La generación de empleo y empresa genera los ingresos que constituyen el sustento principal de las personas y las familias para garantizar su acceso a los bienes y servicios que satisfacen sus necesidades básicas.</p>";
                                                             }
                                                         }
                                                     }
@@ -167,8 +170,6 @@ function getIndicador($id, $indicador, $fuente, $unidad, $tema) {
             }
         }
 
-
-        msgDescription += "</p><p><strong>Nombre del indicador:</strong> " + indicador.nombre + "</p><p><strong>Fuente:</strong> " + indicador.fuente + "</p>";
         $(".moduloDescripcion").html(msgDescription);
     };
 }
@@ -238,26 +239,66 @@ function actualizarTabla(jsonIndicador) {
         //Crea la tabla de la consulta correspondiente
     $('#tablaDatosMobile').columns({
         data: jsonIndicador,
-        showRows: [5, 10],
-        size: 3,
-        search: false
+        showRows: [5, 10, 20],
+    });
+}
+
+
+function searchIndicador(){
+    var indicadorSeleccionado = $("#search_indicadores").val();
+    var consultaDiccionario = urlConsulta + apyKeyDiccionario + '&filters={"Indicador":"'+indicadorSeleccionado+'"}';
+    $.getJSON(consultaDiccionario, getNombreIndicadores);
+    function getNombreIndicadores(data) {
+        var datos = data.result.records[0];
+        getIndicador(datos.id, datos.Indicador, datos.fuente, datos.unidad, datos.tema);
+    };
+}
+
+
+function exportarDatos(typeFile){
+    var chart = $("#containerGraph").highcharts();
+    chart.exportChartLocal({
+        type: typeFile
     });
 }
 
 
 
 $(function() {
-    //var inputSearch = $("[data-input='busquedaIndicador']");
-    //var buttonSearch = $("[data-button='search']");
-    //$(button).on("click", resultadoBoton);
-
-
-    //var consultaDiccionario = urlConsulta+apyKeyDiccionario+'&q={"tema":"'+tema+'"}'+'&limit=3';
     var consultaDiccionario = urlConsulta + apyKeyDiccionario + "&limit=1000";
     $.getJSON(consultaDiccionario, getNombreIndicadores);
 
     function getNombreIndicadores(data) {
         var datos = data.result.records;
+
+        var options = {
+            data: datos,
+            getValue: "Indicador",
+                list: {
+                    match: {
+                        enabled: true
+                    },
+                    maxNumberOfElements: 10,
+                    onClickEvent: function() {
+                        searchIndicador();
+                    },
+                    showAnimation: {
+                        type: "slide",
+                        time: 300,
+                        callback: function() {}
+                    },
+
+                    hideAnimation: {
+                        type: "slide",
+                        time: 300,
+                        callback: function() {}
+                    }
+            }
+        };
+
+        $("#search_indicadores").easyAutocomplete(options);
+        $('.easy-autocomplete').css('width','100%');
+
         $.each(datos, function(i, item) {
             var dato = datos[i];
             var vinculoIndicadores = '<a onclick="getIndicador(\'' + dato.id + '\',\'' + dato.Indicador + '\',\'' + dato.fuente + '\',\'' + dato.unidad + '\',\'' + dato.tema + '\')"><i>' + dato.Indicador + '</i></a>'
@@ -306,7 +347,4 @@ $(function() {
             }
         })
     };
-
-
-
 });
