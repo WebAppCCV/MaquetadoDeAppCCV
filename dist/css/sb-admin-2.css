@@ -21,6 +21,21 @@ body {
         max-height: 100%;
 
     }
+
+    .sidebar {
+        z-index: 1;
+        position: absolute;
+        width: 250px;
+        margin-top: 51px;
+        height: auto;
+        overflow: auto;
+    }
+
+    .navbar-top-links .dropdown-messages,
+    .navbar-top-links .dropdown-tasks,
+    .navbar-top-links .dropdown-alerts {
+        margin-left: auto;
+    }
 }
 
 .navbar-top-links {
@@ -125,38 +140,6 @@ body {
 
 .sidebar .nav-third-level li a {
     padding-left: 52px;
-}
-
-
-@media(min-width:768px) {
-    .sidebar {
-        z-index: 1;
-        position: absolute;
-        width: 250px;
-        margin-top: 51px;
-        max-height: 555px;
-        overflow: auto;
-    }
-
-    .navbar-top-links .dropdown-messages,
-    .navbar-top-links .dropdown-tasks,
-    .navbar-top-links .dropdown-alerts {
-        margin-left: auto;
-    }
-}
-@media (min-width: 992px) {
-  .sidebar {
-        max-height: 735px;
-        overflow: auto;
-    }
-}
-@media (min-width: 1200px) {
-  .sidebar {
-
-        max-height: 800px;
-        overflow: auto;
-    }
-
 }
 
 .btn-outline {

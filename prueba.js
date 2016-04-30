@@ -59,7 +59,15 @@ options = {
     }]
 }
 
+function index(){
+    $('.indexApp').css('display','block');
+    $('.consultasApp').css('display','none');
+}
+
 function getIndicador($id, $indicador, $fuente, $unidad, $tema) {
+    $('.indexApp').css('display','none');
+    $('.consultasApp').css('display','block');
+
     var dataIndicador = [],
         dataAnio = [],
         arrayJson = [];
@@ -264,6 +272,7 @@ function exportarDatos(typeFile){
 
 
 
+
 $(function() {
     var consultaDiccionario = urlConsulta + apyKeyDiccionario + "&limit=1000";
     $.getJSON(consultaDiccionario, getNombreIndicadores);
@@ -347,4 +356,19 @@ $(function() {
             }
         })
     };
+
+
+    $('.panelPrincipal').resize(function(){ // On resize
+        if($(window).width() > 768){
+            var tamanoSide = $('.panelPrincipal').height()-52;
+            $('.sidebar').css('height', tamanoSide+'px');
+        }else{
+            $('.sidebar').css('height','auto');
+        }
+    });
+
+    $("#ventanaAyuda").on('hidden.bs.modal', function () {
+        $("#ventanaAyuda iframe").attr("src", $("#ventanaAyuda iframe").attr("src"));
+    });
+
 });

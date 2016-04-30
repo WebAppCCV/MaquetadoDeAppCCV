@@ -1609,6 +1609,14 @@ pre code {
   margin-right: auto;
   margin-left: auto;
 }
+
+.indexApp{
+    display: block;
+}
+.consultasApp{
+    display: none;
+}
+
 .row {
   margin-right: -15px;
   margin-left: -15px;
