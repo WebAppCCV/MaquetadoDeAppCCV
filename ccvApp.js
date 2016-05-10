@@ -105,7 +105,7 @@ function getIndicador($id, $indicador, $fuente, $unidad, $tema) {
     indicador.tema = $tema;
 
     $('.nav li a').removeClass('active');
-    //Se adiciona al nuevo item seleccionado la classe "active"
+    //Se adiciona al nuevo ítem seleccionado la clase "active"
     $("#" + indicador.id).addClass("active");
 
     function indicador(anio, valor) {
@@ -113,7 +113,7 @@ function getIndicador($id, $indicador, $fuente, $unidad, $tema) {
         this.VALOR = valor;
     }
 
-    //Valida si se ha dado click en el mismo indicador para no hacer petición de consulta.
+    //Valida si se ha dado clic en el mismo indicador para no hacer petición de consulta.
     if (indicador.id != itemActual) {
 
         var consultaIndicador = urlConsulta + apyKeyRecurso + '&fields=ANIO,' + indicador.id + '&sort=ANIO';
@@ -198,7 +198,7 @@ function getIndicador($id, $indicador, $fuente, $unidad, $tema) {
                                             msgDescription += "Este apartado se concentra en los principales componentes del tránsito vial, parque automotor, control, accidentalidad y en el principal proyecto de transporte de la ciudad, el Sistema Integrado de Transporte Masivo, MIO.</p>";
                                         } else {
                                             if (indicador.tema == "12. Participación y cultura ciudadana") {
-                                                msgDescription += "Cali Cómo vamos evalua anualmente las acciones o iniciativas que nacen a partir de la comunidad ciudadana con el fin de impulsar el desarrollo local.</p>";
+                                                msgDescription += "Cali Cómo vamos evaluá anualmente las acciones o iniciativas que nacen a partir de la comunidad ciudadana con el fin de impulsar el desarrollo local.</p>";
                                             } else {
                                                 if (indicador.tema == "10. Espacio público") {
                                                     msgDescription += "La disponibilidad de Espacio Público de calidad es componente fundamental del Hábitat, al igual que la Vivienda y su entorno. Por ello, CCV le hace seguimiento desde la tasa de espacio público efectivo por habitante, los estándares internacionales y las obras para mejorarlo en cantidad y calidad para los caleños.</p>";
@@ -232,13 +232,6 @@ function getIndicador($id, $indicador, $fuente, $unidad, $tema) {
             $(".moduloDescripcion").html(msgDescription);
         };
     }
-
-
-
-
-
-
-
 
 }
 
