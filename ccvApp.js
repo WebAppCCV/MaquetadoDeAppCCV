@@ -68,6 +68,10 @@ function index() {
     $('.consultasApp').hide()
     $('.nav li a').removeClass('active');
     $('#index').addClass('active');
+
+    if ($(window).width() < 768) {
+        $('div.navbar-collapse').collapse('hide');
+    }
 }
 
 function active(idList) {
