@@ -9,7 +9,7 @@ body {
 }
 
 .page-wrapper {
-        padding: 0 10px;
+    padding: 0 10px;
 }
 
 @media(min-width:768px) {
@@ -19,28 +19,52 @@ body {
         padding: 0 30px;
         border-left: 1px solid #e7e7e7;
         max-height: 100%;
-
     }
-
     .sidebar {
-        z-index: 1;
+        z-index: 10;
         position: absolute;
         width: 250px;
         margin-top: 51px;
         height: auto;
         overflow: auto;
     }
-
     .navbar-top-links .dropdown-messages,
     .navbar-top-links .dropdown-tasks,
     .navbar-top-links .dropdown-alerts {
         margin-left: auto;
     }
+
+    #loading {
+        display: flex;
+    }
+}
+
+@media(max-width:768px) {
+    #loading {
+        text-align: center;
+        display: block;
+    }
+    #loading-image {
+        margin-top: 50%;
+    }
+}
+
+#loading {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    opacity: 0.5;
+    background-color: #000;
+    z-index: 1900;
+    justify-content: center;
+}
+
+#loading-image {
+    z-index: 2000;
 }
 
 .navbar-top-links {
     margin-right: 0;
-
 }
 
 .navbar-top-links li {
@@ -99,7 +123,6 @@ body {
 .sidebar .sidebar-nav.navbar-collapse {
     padding-right: 0;
     padding-left: 0;
-
 }
 
 .sidebar .sidebar-search {
@@ -120,13 +143,12 @@ body {
 
 .sidebar .fa.arrow:before {
     content: "\f104";
-    color:#FFC902;
+    color: #FFC902;
     font-weight: bold;
 }
 
 .sidebar .active>a>.fa.arrow:before {
     content: "\f107";
-
 }
 
 .sidebar .nav-second-level li,
@@ -253,7 +275,7 @@ table.dataTable thead .sorting:after {
     content: "\f0dc";
     float: right;
     font-family: fontawesome;
-    color: rgba(50,50,50,.5);
+    color: rgba(50, 50, 50, .5);
 }
 
 .btn-circle {

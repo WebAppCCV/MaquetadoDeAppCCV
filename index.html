@@ -6,24 +6,29 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
     <title>Estadisticas CCV</title>
     <!-- Bootstrap Core CSS -->
-    <link href="bootstrap/css/bootstrap.css" rel="stylesheet">
+    <link href="dist/bootstrap/css/bootstrap.css" rel="stylesheet">
     <!-- MetisMenu CSS -->
-    <link href="metisMenu/metisMenu.css" rel="stylesheet">
+    <link href="dist/css/metisMenu.css" rel="stylesheet">
     <!-- Template CSS -->
     <link href="dist/css/sb-admin-2.css" rel="stylesheet">
     <!-- Fonts Awasome CSS -->
-    <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="dist/css/font-awesome.css" rel="stylesheet" type="text/css">
     <!-- Fonts IconAppCCV CSS -->
     <link href="dist/css/IconAppCCV.css" rel="stylesheet" type="text/css">
     <!-- Columns CSS -->
-    <link href="dist/css/clean.css" rel="stylesheet" type="text/css">
+    <link href="dist/css/clean.min.css" rel="stylesheet" type="text/css">
     <!-- Autocomplete CSS -->
     <link href="dist/css/easy-autocomplete.css" rel="stylesheet" type="text/css">
+    <!-- Favicon -->
+    <link href="favicon.ico" rel="shortcut icon" type="image/ico" />
 </head>
 
 <body>
     <div class="container">
         <div class="panel panelPrincipal">
+            <div id="loading">
+                <img id="loading-image" src="dist/img/loading.svg" alt="Loading..." />
+            </div>
             <!-- Navigation -->
             <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0; background-color:#5172A0">
                 <div class="navbar-header">
@@ -37,12 +42,12 @@
                 </div>
                 <!-- /.navbar-header -->
                 <ul class="nav navIcon navbar-top-links navbar-right">
-                    <li><a href="#" class="btn btn-navCCV" onClick="disminuir()" rel="popover" data-container="body" data-toggle="popover" data-placement="bottom" title="<i><strong>Disminuir tamaño de fuente</strong></i>" data-content="<i>Con este botón podrás reducir el tamaño de la fuente dentro de la App</i>"><i class="iconccv-2x icon-Icon_a"></i></a>
+                    <li><a class="btn btn-navCCV" onClick="disminuir()" rel="popover" data-container="body" data-toggle="popover" data-placement="bottom" title="<i><strong>Disminuir tamaño de fuente</strong></i>" data-content="<i>Con este botón podrás reducir el tamaño de la fuente dentro de la App</i>"><i class="iconccv-2x icon-Icon_a"></i></a>
                     </li>
-                    <li><a href="#" class="btn btn-navCCV" onClick="aumentar()" rel="popover" data-container="body" data-toggle="popover" data-placement="bottom" title="<i><strong>Aumentar tamaño de fuente</strong></i>" data-content="<i>Con este botón podrás aumentar el tamaño de la fuente dentro de la App</i>"><i class="iconccv-2x icon-Icon_A"></i></a>
+                    <li><a class="btn btn-navCCV" onClick="aumentar()" rel="popover" data-container="body" data-toggle="popover" data-placement="bottom" title="<i><strong>Aumentar tamaño de fuente</strong></i>" data-content="<i>Con este botón podrás aumentar el tamaño de la fuente dentro de la App</i>"><i class="iconccv-2x icon-Icon_A"></i></a>
                     </li>
                     <span nav-divider></span>
-                    <li><a href="#" class="btn btn-navCCV" data-toggle="modal" data-target="#ventanaAyuda" rel="popover" data-container="body" data-toggle="popover" data-placement="bottom" title="<i><strong>Ayuda</strong></i>" data-content="<i>Aprende a usar la aplicación mediante el apartado de ayuda</i>"><i class="iconccv-2x icon-Icon_Help"></i></a>
+                    <li><a class="btn btn-navCCV" data-toggle="modal" data-target="#ventanaAyuda" rel="popover" data-container="body" data-toggle="popover" data-placement="bottom" title="<i><strong>Ayuda</strong></i>" data-content="<i>Aprende a usar la aplicación mediante el apartado de ayuda</i>"><i class="iconccv-2x icon-Icon_Help"></i></a>
                     </li>
                 </ul>
                 <!-- /.navbar-top-links -->
@@ -60,101 +65,102 @@
                                 <!-- /input-group -->
                             </li>
                             <li>
-                                <a href="#" onclick="index()" class="active"><i class="iconccv icon-Icon_CCVHome iconccv-fw"></i> Inicio</a>
+                                <a onclick="index()" class="active" id="index"><i class="iconccv icon-Icon_CCVHome iconccv-fw"></i> Inicio</a>
+                                <ul class="nav navMenu nav-second-level"></ul>
                             </li>
                             <li>
-                                <a href="#"><i class="iconccv icon-Icon_Man iconccv-fw"></i> Población y Demografía<span class="fa arrow iconccv-lg"></span></a>
+                                <a href="#" onclick="active('poblacion')" id="poblacion"><i class="iconccv icon-Icon_Man iconccv-fw"></i> Población y Demografía<span class="fa arrow iconccv-lg"></span></a>
                                 <ul class="nav navMenu nav-second-level">
                                     <li data-Indicador="poblacion"></li>
                                 </ul>
                                 <!-- /.nav-second-level -->
                             </li>
                             <li>
-                                <a href="#"><i class="iconccv icon-Icon_Chart2 iconccv-fw"></i> Pobreza y desigualdad<span class="fa arrow iconccv-lg"></span></a>
+                                <a href="#" onclick="active('pobreza')" id="pobreza"><i class="iconccv icon-Icon_Chart2 iconccv-fw"></i> Pobreza y desigualdad<span class="fa arrow iconccv-lg"></span></a>
                                 <ul class="nav navMenu nav-second-level">
                                     <li data-Indicador="pobreza"></li>
                                 </ul>
                                 <!-- /.nav-second-level -->
                             </li>
                             <li>
-                                <a href="#"><i class="iconccv icon-Icon_Education iconccv-fw"></i> Educación<span class="fa arrow iconccv-lg"></span></a>
+                                <a href="#" onclick="active('educacion')" id="educacion"><i class="iconccv icon-Icon_Education iconccv-fw"></i> Educación<span class="fa arrow iconccv-lg"></span></a>
                                 <ul class="nav navMenu nav-second-level">
                                     <li data-Indicador="educacion"></li>
                                 </ul>
                                 <!-- /.nav-second-level -->
                             </li>
                             <li>
-                                <a href="#"><i class="iconccv icon-Icon_Security iconccv-fw"></i> Seguridad ciudadana<span class="fa arrow iconccv-lg"></span></a>
+                                <a href="#" onclick="active('seguridad')" id="seguridad"><i class="iconccv icon-Icon_Security iconccv-fw"></i> Seguridad ciudadana<span class="fa arrow iconccv-lg"></span></a>
                                 <ul class="nav navMenu nav-second-level">
                                     <li data-Indicador="seguridad"></li>
                                 </ul>
                                 <!-- /.nav-second-level -->
                             </li>
                             <li>
-                                <a href="#"><i class="iconccv icon-Icon_Forest iconccv-fw"></i> Medio ambiente<span class="fa arrow iconccv-lg"></span></a>
+                                <a href="#" onclick="active('ambiente')" id="ambiente"><i class="iconccv icon-Icon_Forest iconccv-fw"></i> Medio ambiente<span class="fa arrow iconccv-lg"></span></a>
                                 <ul class="nav navMenu nav-second-level">
                                     <li data-Indicador="ambiente"></li>
                                 </ul>
                                 <!-- /.nav-second-level -->
                             </li>
                             <li>
-                                <a href="#"><i class="iconccv icon-Icon_Culture iconccv-fw"></i> Cultura y recreación<span class="fa arrow iconccv-lg"></span></a>
+                                <a href="#" onclick="active('cultura')" id="cultura"><i class="iconccv icon-Icon_Culture iconccv-fw"></i> Cultura y recreación<span class="fa arrow iconccv-lg"></span></a>
                                 <ul class="nav navMenu nav-second-level">
                                     <li data-Indicador="cultura"></li>
                                 </ul>
                                 <!-- /.nav-second-level -->
                             </li>
                             <li>
-                                <a href="#"><i class="iconccv icon-Icon_Health iconccv-fw"></i> Salud<span class="fa arrow iconccv-lg"></span></a>
+                                <a href="#" onclick="active('salud')" id="salud"><i class="iconccv icon-Icon_Health iconccv-fw"></i> Salud<span class="fa arrow iconccv-lg"></span></a>
                                 <ul class="nav navMenu nav-second-level">
                                     <li data-Indicador="salud"></li>
                                 </ul>
                                 <!-- /.nav-second-level -->
                             </li>
                             <li>
-                                <a href="#"><i class="iconccv icon-Icon_Mobility2 iconccv-fw"></i> Movilidad<span class="fa arrow iconccv-lg"></span></a>
+                                <a href="#" onclick="active('movilidad')" id="movilidad"><i class="iconccv icon-Icon_Mobility2 iconccv-fw"></i> Movilidad<span class="fa arrow iconccv-lg"></span></a>
                                 <ul class="nav navMenu nav-second-level">
                                     <li data-Indicador="movilidad"></li>
                                 </ul>
                                 <!-- /.nav-second-level -->
                             </li>
                             <li>
-                                <a href="#"><i class="iconccv icon-Icon_Woman iconccv-fw"></i> Participación ciudadana<span class="fa arrow iconccv-lg"></span></a>
+                                <a href="#" onclick="active('participacion')" id="participacion"><i class="iconccv icon-Icon_Woman iconccv-fw"></i> Participación ciudadana<span class="fa arrow iconccv-lg"></span></a>
                                 <ul class="nav navMenu nav-second-level">
                                     <li data-Indicador="participacion"></li>
                                 </ul>
                                 <!-- /.nav-second-level -->
                             </li>
                             <li>
-                                <a href="#"><i class="iconccv icon-Icon_Park iconccv-fw"></i> Espacio público<span class="fa arrow iconccv-lg"></span></a>
+                                <a href="#" onclick="active('espacio')" id="espacio"><i class="iconccv icon-Icon_Park iconccv-fw"></i> Espacio público<span class="fa arrow iconccv-lg"></span></a>
                                 <ul class="nav navMenu nav-second-level">
                                     <li data-Indicador="espacio"></li>
                                 </ul>
                                 <!-- /.nav-second-level -->
                             </li>
                             <li>
-                                <a href="#"><i class="iconccv icon-Icon_Home iconccv-fw"></i> Vivienda y Servicios<span class="fa arrow iconccv-lg"></span></a>
+                                <a href="#" onclick="active('vivienda')" id="vivienda"><i class="iconccv icon-Icon_Home iconccv-fw"></i> Vivienda y Servicios<span class="fa arrow iconccv-lg"></span></a>
                                 <ul class="nav navMenu nav-second-level">
                                     <li data-Indicador="vivienda"></li>
                                 </ul>
                                 <!-- /.nav-second-level -->
                             </li>
                             <li>
-                                <a href="#"><i class="iconccv icon-IconService iconccv-fw"></i> Empleo<span class="fa arrow iconccv-lg"></span></a>
+                                <a href="#" onclick="active('empleo')" id="empleo"><i class="iconccv icon-IconService iconccv-fw"></i> Empleo<span class="fa arrow iconccv-lg"></span></a>
                                 <ul class="nav navMenu nav-second-level">
                                     <li data-Indicador="empleo"></li>
                                 </ul>
                                 <!-- /.nav-second-level -->
                             </li>
                             <li>
-                                <a href="#"><i class="iconccv icon-Icon_Chart iconccv-fw"></i> Finanzas<span class="fa arrow iconccv-lg"></span></a>
+                                <a href="#" onclick="active('finanzas')" id="finanzas"><i class="iconccv icon-Icon_Chart iconccv-fw"></i> Finanzas<span class="fa arrow iconccv-lg"></span></a>
                                 <ul class="nav navMenu nav-second-level">
                                     <li data-Indicador="finanzas"></li>
                                 </ul>
                                 <!-- /.nav-second-level -->
                             </li>
                             <li>
-                                <a href="#"><i class="iconccv icon-Icon_Table iconccv-fw"></i> Entorno económico<span class="fa arrow iconccv-lg"></span></a>
+                                <a href="#" onclick="active('economia')" id="economia"><i class="iconccv icon-Icon_Table iconccv-fw"></i> Entorno económico<span class="fa arrow iconccv-lg"></span></a>
                                 <ul class="nav navMenu nav-second-level">
                                     <li data-Indicador="economia"></li>
                                 </ul>
@@ -170,19 +176,17 @@
             <div class="page-wrapper">
                 <div class="container-fluid indexApp">
                     <div class="row" style="margin: 15px -15px 0px -15px">
-
-                        <div  class = "col-xs-12">
+                        <div class="col-xs-12">
                             <h1 class="text-center text-muted">ESTADISTICAS CCV</h1>
                         </div>
-                 
-                        <div  class = "col-xs-12">
+                        <div class="col-xs-12">
                             <div class="panel panel-primary">
                                 <div class="panel-heading">
                                     Bienvenidos
                                 </div>
                                 <div class="panel-body">
                                     <div class="row">
-                                        <div  class = "col-xs-12 col-md-6">
+                                        <div class="col-xs-12 col-md-6">
                                             <span>
                                                 <h4>Cali, desde otra perspectiva</h4>
                                                 <p class="text-justify">
@@ -192,47 +196,46 @@
                                                 </p>
                                                     <button type="button" class="btn btn-warning btn-block" data-toggle="modal" data-target="#ventanaAyuda">Tutorial</button>
                                             </span>
-                                            
                                         </div>
-                                        <div  class = "col-xs-12 col-md-6">
+                                        <div class="col-xs-12 col-md-6">
                                             <img src="dist/img/ImgTutorial.png" alt="Imagen del modo tutorial para la App Web de Cali Cómo Vamos" class="img-responsive center-block">
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <div  class = "col-xs-12">
+                        <div class="col-xs-12">
                             <div class="panel panel-primary">
                                 <div class="panel-heading">
-                                  Cali Cómo Vamos - Contacto
+                                    Cali Cómo Vamos - Contacto
                                 </div>
                                 <div class="panel-body">
-                                    <div  class = "col-xs-12 col-md-6">
-                                            <img src="dist/img/LogoCCV.png" alt="Logo de Cali Cómo Vamos para App web" class="img-responsive center-block">
+                                    <div class="col-xs-12 col-md-6">
+                                        <img src="dist/img/LogoCCV.png" alt="Logo de Cali Cómo Vamos para App web" class="img-responsive center-block">
                                     </div>
-                                    <div  class = "col-xs-12 col-md-6">
-                                            <h4>Contacto:</h4>
-                                            <address class="center-block">
-                                                <strong>Dirección: </strong>
-                                                Calle 2 A # 24C – 95 Barrio San Fernando.<br>
-                                                Universidad Autónoma de Occidente Cali.<br>
-                                                <strong>Teléfono: </strong>3188000 EXT: 14140/1/2/3<br>
-                                                <strong>Email: </strong>
-                                                 <a href="mailto:#">coordinacion@calicomovamos.org.co</a><br>
-                                                 <a href="mailto:#">asistente@calicomovamos.org.co</a><br>
-                                                <strong>Desarrollo: </strong>Jesús David Padilla Cabrera.
-                                            </address>
+                                    <div class="col-xs-12 col-md-6">
+                                        <h4>Contacto:</h4>
+                                        <address class="center-block">
+                                            <strong>Dirección: </strong> Calle 2 A # 24C – 95 Barrio San Fernando.
+                                            <br> Universidad Autónoma de Occidente Cali.
+                                            <br>
+                                            <strong>Teléfono: </strong>3188000 EXT: 14140/1/2/3
+                                            <br>
+                                            <strong>Email: </strong>
+                                            <a href="mailto:#">coordinacion@calicomovamos.org.co</a>
+                                            <br>
+                                            <a href="mailto:#">asistente@calicomovamos.org.co</a>
+                                            <br>
+                                            <strong>Desarrollo: </strong>Jesús David Padilla Cabrera.
+                                        </address>
                                     </div>
- 
                                 </div>
                             </div>
                         </div>
-
                     </div>
                     <!-- /.row -->
                 </div>
                 <!-- /.container-fluid indexApp-->
-
                 <div class="container-fluid consultasApp">
                     <div class="row" style="margin: 15px -15px 0px -15px">
                         <div class="col-xs-12 descripcion">
@@ -273,7 +276,7 @@
                                             <div class="moduloFiltro">
                                                 <div class="row">
                                                     <div class="col-md-12">
-                                                        <h5>Activar etiqueta de datos</h5>
+                                                        <h5><span><img src="dist/img/step_1.png"></span> Activar etiqueta de datos</h5>
                                                         <div class="dataLabelGrafica">
                                                             <div class="btn btn-group btn-group-justified" data-toggle="buttons">
                                                                 <label class="btn btn-default btn-sm btn-block active">
@@ -286,28 +289,28 @@
                                                         </div>
                                                     </div>
                                                     <div class="col-md-12 col-lg-6">
-                                                        <h5>Elige un tipo de gráfica</h5>
+                                                        <h5><span><img src="dist/img/step_2.png"></span> Elige un tipo de gráfica</h5>
                                                         <div class="btn btn-group btn-group-justified" data-toggle="buttons">
                                                             <label class="btn btn-xs btn-default active">
                                                                 <input type="radio" name="optionChart" id="TypeChart1" autocomplete="off" checked>
-                                                                <span><img src="dist/images/typeChart_1.png"></span>
+                                                                <span><img src="dist/img/typeChart_1.png"></span>
                                                             </label>
                                                             <label class="btn btn-xs btn-default">
                                                                 <input type="radio" name="optionChart" id="TypeChart2" autocomplete="off">
-                                                                <span><img src="dist/images/typeChart_2.png"></span>
+                                                                <span><img src="dist/img/typeChart_2.png"></span>
                                                             </label>
                                                             <label class="btn btn-xs btn-default">
                                                                 <input type="radio" name="optionChart" id="TypeChart3" autocomplete="off">
-                                                                <span><img src="dist/images/typeChart_3.png"></span>
+                                                                <span><img src="dist/img/typeChart_3.png"></span>
                                                             </label>
                                                             <label class="btn btn-xs btn-default">
                                                                 <input type="radio" name="optionChart" id="TypeChart4" autocomplete="off">
-                                                                <span><img src="dist/images/typeChart_4.png"></span>
+                                                                <span><img src="dist/img/typeChart_4.png"></span>
                                                             </label>
                                                         </div>
                                                     </div>
                                                     <div class="col-md-12 col-lg-6">
-                                                        <h5>Elige un color</h5>
+                                                        <h5><span><img src="dist/img/step_3.png"></span> Elige un color</h5>
                                                         <div class="btn btn-group btn-group-justified" data-toggle="buttons">
                                                             <label class="btn btn-lg btn-colorTols-orage active">
                                                                 <input type="radio" name="optionColor" id="TypeColor1" autocomplete="off" checked>
@@ -324,7 +327,7 @@
                                                         </div>
                                                     </div>
                                                     <div class="col-md-12">
-                                                        <h5>Pulsa para graficar</h5>
+                                                        <h5><span><img src="dist/img/step_4.png"></span> Pulsa para graficar</h5>
                                                         <button type="button" class="btn btn-primary btn-sm btn-block" onclick="graficaPersonalizada()">Graficar</button>
                                                     </div>
                                                 </div>
@@ -407,7 +410,7 @@
                                                 <h4>Personalizar gráfica</h4>
                                                 <div class="row">
                                                     <div class="col-md-12">
-                                                        <h5>Activar etiqueta de datos</h5>
+                                                        <h5><span><img src="dist/img/step_1.png"></span> Activar etiqueta de datos</h5>
                                                         <div class="dataLabelGrafica">
                                                             <div class="btn btn-group btn-group-justified" data-toggle="buttons">
                                                                 <label class="btn btn-default btn-sm btn-block active">
@@ -420,28 +423,28 @@
                                                         </div>
                                                     </div>
                                                     <div class="col-md-12">
-                                                        <h5>Elige un tipo de gráfica</h5>
+                                                        <h5><span><img src="dist/img/step_2.png"></span> Elige un tipo de gráfica</h5>
                                                         <div class="btn btn-group btn-group-justified" data-toggle="buttons">
                                                             <label class="btn btn-xs btn-default active">
                                                                 <input type="radio" name="optionChart" id="TypeChart1" autocomplete="off" checked>
-                                                                <span><img src="dist/images/typeChart_1.png"></span>
+                                                                <span><img src="dist/img/typeChart_1.png"></span>
                                                             </label>
                                                             <label class="btn btn-xs btn-default">
                                                                 <input type="radio" name="optionChart" id="TypeChart2" autocomplete="off">
-                                                                <span><img src="dist/images/typeChart_2.png"></span>
+                                                                <span><img src="dist/img/typeChart_2.png"></span>
                                                             </label>
                                                             <label class="btn btn-xs btn-default">
                                                                 <input type="radio" name="optionChart" id="TypeChart3" autocomplete="off">
-                                                                <span><img src="dist/images/typeChart_3.png"></span>
+                                                                <span><img src="dist/img/typeChart_3.png"></span>
                                                             </label>
                                                             <label class="btn btn-xs btn-default">
                                                                 <input type="radio" name="optionChart" id="TypeChart4" autocomplete="off">
-                                                                <span><img src="dist/images/typeChart_4.png"></span>
+                                                                <span><img src="dist/img/typeChart_4.png"></span>
                                                             </label>
                                                         </div>
                                                     </div>
                                                     <div class="col-md-12">
-                                                        <h5>Elige un color</h5>
+                                                        <h5><span><img src="dist/img/step_3.png"></span> Elige un color</h5>
                                                         <div class="btn btn-group btn-group-justified" data-toggle="buttons">
                                                             <label class="btn btn-sm btn-colorTols-orage active">
                                                                 <input type="radio" name="optionColor" id="TypeColor1" autocomplete="off" checked>
@@ -458,7 +461,7 @@
                                                         </div>
                                                     </div>
                                                     <div class="col-md-12">
-                                                        <h5>Pulsa para graficar</h5>
+                                                        <h5><span><img src="dist/img/step_4.png"></span> Pulsa para graficar</h5>
                                                         <button type="button" class="btn btn-primary btn-sm btn-block" onclick="graficaPersonalizada()">Graficar</button>
                                                     </div>
                                                 </div>
@@ -524,22 +527,19 @@
                     <!-- /.row -->
                 </div>
                 <!-- /.container-fluid consultasApp -->
-
-
-
             </div>
             <!-- /#page-wrapper -->
         </div>
         <!-- /Panel panel-default -->
     </div>
     <!--/container-->
-    <!-- Modal -->
+    <!-- Modal video tutorial -->
     <div class="modal fade" id="ventanaAyuda" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
         <div class="modal-dialog modal-lg" role="document">
             <div class="modal-content">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close"><i class="iconccv icon-Icon_HelpClose"></i></button>
-                    <h4 class="modal-title" id="myModalLabel">¿Cómo usar la apliacióm de Cali Cómo Vamos?</h4>
+                    <h4 class="modal-title" id="myModalLabel">¿Cómo usar la apliación de Cali Cómo Vamos?</h4>
                 </div>
                 <div class="modal-body">
                     <div class="embed-responsive embed-responsive-16by9">
@@ -549,16 +549,52 @@
             </div>
         </div>
     </div>
+    <!-- Modal error request -->
+    <div class="modal fade" id="ModalError" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <img src="dist/img/ImgError.png" alt="Imagen de error a las peticiones de servidor" class="img-responsive center-block">
+                    <br>
+                    <div class="alert alert-danger" role="alert" id="AlertMessage">
+                        <strong>Hubo un error en la consulta</strong>
+                        <p>Intente recargar la página. Si el error continua contacte al soporte de CCV.
+                            <br>Teléfono: 3188000 EXT: 14140/1/2/3.</p>
+                    </div>
+                    <button class="btn btn-danger btn-sm btn-block" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">Ver error técnico</button>
+                    <div class="collapse" id="collapseExample">
+                        <div id="TecnicalMsgError"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Modal No results -->
+    <div class="modal fade" id="ModalNoResults" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <img src="dist/img/ImgNoResults.png" alt="Imagen de error en la búsqueda de indicadores" class="img-responsive center-block">
+                    <br>
+                    <div class="alert alert-danger" role="alert" id="AlertMessage">
+                        <strong>No se encontraron resultados</strong>
+                        <p>El indicador que deseas consultar no existe, verifique si está bien escrito.
+                            <br>Te suguerimos hacer uso de los resultados recomendados en tiempo real, son más efectívos.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
     <!-- jQuery -->
-    <script src="jquery/jquery.min.js"></script>
+    <script src="dist/js/jquery/jquery.min.js"></script>
     <!-- Bootstrap Core JavaScript -->
-    <script src="bootstrap/js/bootstrap.min.js"></script>
+    <script src="dist/bootstrap/js/bootstrap.min.js"></script>
     <!-- Metis Menu Plugin JavaScript -->
-    <script src="metisMenu/metisMenu.js"></script>
+    <script src="dist/js/metisMenu.js"></script>
     <!-- Custom Theme JavaScript -->
-    <script src="dist/js/appCCV-js.js"></script>
-    <!-- JavaScript de prueba -->
-    <script src="prueba.js"></script>
+    <script src="dist/js/sb-admin-2.js"></script>
+    <!-- JavaScript de la App -->
+    <script src="ccvApp.js"></script>
     <!-- Resize JS-->
     <script src="dist/js/jquery.resize.js"></script>
     <!-- Columns JS-->
@@ -579,17 +615,6 @@
     <script src="dist/js/highchart-export/export-csv.js"></script>
     <!-- Módulo para habilitar las opciones de descarga CSV-->
     <script src="dist/js/highchart-export/highcharts-export-clientside.js"></script>
-    <!-- Script para activar por popover = Ayuda contextual -->
-    <script>
-    $('[rel="popover"]').popover({
-        trigger: 'hover',
-        html: true,
-        delay: {
-            'show': 1500,
-            'hide': 100
-        },
-    });
-    </script>
 </body>
 
 </html>
