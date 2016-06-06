@@ -274,59 +274,57 @@
                                             <div class="moduloFiltro">
                                                 <div class="row">
                                                     <div class="col-md-12">
-                                                        <h5><span><img src="dist/img/step_1.png"></span> Activar etiqueta de datos</h5>
-                                                        <div class="dataLabelGrafica">
-                                                            <div class="btn btn-group btn-group-justified" data-toggle="buttons">
-                                                                <label class="btn btn-default btn-sm btn-block active">
-                                                                    <input type="radio" name="optionLabel" id="TypeLabel1" autocomplete="off" checked> Si
-                                                                </label>
-                                                                <label class="btn btn-default btn-sm btn-block">
-                                                                    <input type="radio" name="optionLabel" id="TypeLabel2" autocomplete="off"> No
-                                                                </label>
+                                                        <h5>Activar etiqueta de datos</h5>
+                                                        <div class="btn btn-group btn-group-justified" role="group" data-toggle="buttons">
+                                                            <div class="btn-group" role="group">
+                                                                <button type="button" class="btn btn-default active" id="TypeLabel1" onclick="personalizarLabelGrafica('TypeLabel1')">Si</button>
+                                                            </div>
+                                                            <div class="btn-group" role="group">
+                                                                <button type="button" class="btn btn-default" id="TypeLabel2" onclick="personalizarLabelGrafica('TypeLabel2')">No</button>
                                                             </div>
                                                         </div>
                                                     </div>
                                                     <div class="col-md-12 col-lg-6">
-                                                        <h5><span><img src="dist/img/step_2.png"></span> Elige un tipo de gráfica</h5>
-                                                        <div class="btn btn-group btn-group-justified" data-toggle="buttons">
-                                                            <label class="btn btn-xs btn-default active">
-                                                                <input type="radio" name="optionChart" id="TypeChart1" autocomplete="off" checked>
-                                                                <span><img src="dist/img/typeChart_1.png"></span>
-                                                            </label>
-                                                            <label class="btn btn-xs btn-default">
-                                                                <input type="radio" name="optionChart" id="TypeChart2" autocomplete="off">
-                                                                <span><img src="dist/img/typeChart_2.png"></span>
-                                                            </label>
-                                                            <label class="btn btn-xs btn-default">
-                                                                <input type="radio" name="optionChart" id="TypeChart3" autocomplete="off">
-                                                                <span><img src="dist/img/typeChart_3.png"></span>
-                                                            </label>
-                                                            <label class="btn btn-xs btn-default">
-                                                                <input type="radio" name="optionChart" id="TypeChart4" autocomplete="off">
-                                                                <span><img src="dist/img/typeChart_4.png"></span>
-                                                            </label>
+                                                        <h5>Elige un tipo de gráfica</h5>
+                                                        <div class="btn btn-group btn-group-justified" role="group" data-toggle="buttons">
+                                                            <div class="btn-group" role="group">
+                                                                <button type="button" class="btn btn-xs btn-default active" id="TypeChart1" onclick="personalizarTipoGrafica('TypeChart1')">
+                                                                    <span><img src="dist/img/typeChart_1.png"></span>
+                                                                </button>
+                                                            </div>
+                                                            <div class="btn-group" role="group">
+                                                                <button type="button" class="btn btn-xs btn-default" id="TypeChart2" onclick="personalizarTipoGrafica('TypeChart2')">
+                                                                    <span><img src="dist/img/typeChart_2.png"></span>
+                                                                </button>
+                                                            </div>
+                                                            <div class="btn-group" role="group">
+                                                                <button type="button" class="btn btn-xs btn-default" id="TypeChart3" onclick="personalizarTipoGrafica('TypeChart3')">
+                                                                    <span><img src="dist/img/typeChart_3.png"></span>
+                                                                </button>
+                                                            </div>
+                                                            <div class="btn-group" role="group">
+                                                                <button type="button" class="btn btn-xs btn-default" id="TypeChart4" onclick="personalizarTipoGrafica('TypeChart4')">
+                                                                    <span><img src="dist/img/typeChart_4.png"></span>
+                                                                </button>
+                                                            </div>
                                                         </div>
                                                     </div>
                                                     <div class="col-md-12 col-lg-6">
-                                                        <h5><span><img src="dist/img/step_3.png"></span> Elige un color</h5>
-                                                        <div class="btn btn-group btn-group-justified" data-toggle="buttons">
-                                                            <label class="btn btn-lg btn-colorTols-orage active">
-                                                                <input type="radio" name="optionColor" id="TypeColor1" autocomplete="off" checked>
-                                                            </label>
-                                                            <label class="btn btn-lg btn-colorTols-verdeAzul">
-                                                                <input type="radio" name="optionColor" id="TypeColor2" autocomplete="off">
-                                                            </label>
-                                                            <label class="btn btn-lg btn-colorTols-red">
-                                                                <input type="radio" name="optionColor" id="TypeColor3" autocomplete="off">
-                                                            </label>
-                                                            <label class="btn btn-lg btn-colorTols-blueCCV">
-                                                                <input type="radio" name="optionColor" id="TypeColor4" autocomplete="off">&nbsp;
-                                                            </label>
+                                                        <h5>Elige un color</h5>
+                                                        <div class="btn btn-group btn-group-justified" role="group" data-toggle="buttons">
+                                                            <div class="btn-group" role="group">
+                                                                <button type="button" class="btn btn-lg btn-colorTols-orage active" id="TypeColor1" onclick="personalizarColorGrafica('TypeColor1')">&nbsp</button>
+                                                            </div>
+                                                            <div class="btn-group" role="group">
+                                                                <button type="button" class="btn btn-lg btn-colorTols-verdeAzul" id="TypeColor2" onclick="personalizarColorGrafica('TypeColor2')">&nbsp</button>
+                                                            </div>
+                                                            <div class="btn-group" role="group">
+                                                                <button type="button" class="btn btn-lg btn-colorTols-red" id="TypeColor3" onclick="personalizarColorGrafica('TypeColor3')">&nbsp</button>
+                                                            </div>
+                                                            <div class="btn-group" role="group">
+                                                                <button type="button" class="btn btn-lg btn-colorTols-blueCCV" id="TypeColor4" onclick="personalizarColorGrafica('TypeColor4')">&nbsp</button>
+                                                            </div>
                                                         </div>
-                                                    </div>
-                                                    <div class="col-md-12">
-                                                        <h5><span><img src="dist/img/step_4.png"></span> Pulsa para graficar</h5>
-                                                        <button type="button" class="btn btn-primary btn-sm btn-block" onclick="graficaPersonalizada()">Graficar</button>
                                                     </div>
                                                 </div>
                                             </div>
@@ -408,59 +406,57 @@
                                                 <h4>Personalizar gráfica</h4>
                                                 <div class="row">
                                                     <div class="col-md-12">
-                                                        <h5><span><img src="dist/img/step_1.png"></span> Activar etiqueta de datos</h5>
-                                                        <div class="dataLabelGrafica">
-                                                            <div class="btn btn-group btn-group-justified" data-toggle="buttons">
-                                                                <label class="btn btn-default btn-sm btn-block active">
-                                                                    <input type="radio" name="optionLabel" id="TypeLabel1" autocomplete="off" checked> Si
-                                                                </label>
-                                                                <label class="btn btn-default btn-sm btn-block">
-                                                                    <input type="radio" name="optionLabel" id="TypeLabel2" autocomplete="off"> No
-                                                                </label>
+                                                        <h5>Activar etiqueta de datos</h5>
+                                                        <div class="btn btn-group btn-group-justified" role="group" data-toggle="buttons">
+                                                            <div class="btn-group" role="group">
+                                                                <button type="button" class="btn btn-default active" id="TypeLabelMobile1" onclick="personalizarLabelGrafica('TypeLabel1')">Si</button>
+                                                            </div>
+                                                            <div class="btn-group" role="group">
+                                                                <button type="button" class="btn btn-default" id="TypeLabelMobile2" onclick="personalizarLabelGrafica('TypeLabel2')">No</button>
                                                             </div>
                                                         </div>
                                                     </div>
                                                     <div class="col-md-12">
-                                                        <h5><span><img src="dist/img/step_2.png"></span> Elige un tipo de gráfica</h5>
-                                                        <div class="btn btn-group btn-group-justified" data-toggle="buttons">
-                                                            <label class="btn btn-xs btn-default active">
-                                                                <input type="radio" name="optionChart" id="TypeChart1" autocomplete="off" checked>
-                                                                <span><img src="dist/img/typeChart_1.png"></span>
-                                                            </label>
-                                                            <label class="btn btn-xs btn-default">
-                                                                <input type="radio" name="optionChart" id="TypeChart2" autocomplete="off">
-                                                                <span><img src="dist/img/typeChart_2.png"></span>
-                                                            </label>
-                                                            <label class="btn btn-xs btn-default">
-                                                                <input type="radio" name="optionChart" id="TypeChart3" autocomplete="off">
-                                                                <span><img src="dist/img/typeChart_3.png"></span>
-                                                            </label>
-                                                            <label class="btn btn-xs btn-default">
-                                                                <input type="radio" name="optionChart" id="TypeChart4" autocomplete="off">
-                                                                <span><img src="dist/img/typeChart_4.png"></span>
-                                                            </label>
+                                                        <h5>Elige un tipo de gráfica</h5>
+                                                        <div class="btn btn-group btn-group-justified" role="group" data-toggle="buttons">
+                                                            <div class="btn-group" role="group">
+                                                                <button type="button" class="btn btn-xs btn-default active" id="TypeChartMobile1" onclick="personalizarTipoGrafica('TypeChart1')">
+                                                                    <span><img src="dist/img/typeChart_1.png"></span>
+                                                                </button>
+                                                            </div>
+                                                            <div class="btn-group" role="group">
+                                                                <button type="button" class="btn btn-xs btn-default" id="TypeChartMobile2" onclick="personalizarTipoGrafica('TypeChart2')">
+                                                                    <span><img src="dist/img/typeChart_2.png"></span>
+                                                                </button>
+                                                            </div>
+                                                            <div class="btn-group" role="group">
+                                                                <button type="button" class="btn btn-xs btn-default" id="TypeChartMobile3" onclick="personalizarTipoGrafica('TypeChart3')">
+                                                                    <span><img src="dist/img/typeChart_3.png"></span>
+                                                                </button>
+                                                            </div>
+                                                            <div class="btn-group" role="group">
+                                                                <button type="button" class="btn btn-xs btn-default" id="TypeChartMobile4" onclick="personalizarTipoGrafica('TypeChart4')">
+                                                                    <span><img src="dist/img/typeChart_4.png"></span>
+                                                                </button>
+                                                            </div>
                                                         </div>
                                                     </div>
                                                     <div class="col-md-12">
-                                                        <h5><span><img src="dist/img/step_3.png"></span> Elige un color</h5>
-                                                        <div class="btn btn-group btn-group-justified" data-toggle="buttons">
-                                                            <label class="btn btn-sm btn-colorTols-orage active">
-                                                                <input type="radio" name="optionColor" id="TypeColor1" autocomplete="off" checked>
-                                                            </label>
-                                                            <label class="btn btn-sm btn-colorTols-verdeAzul">
-                                                                <input type="radio" name="optionColor" id="TypeColor2" autocomplete="off">
-                                                            </label>
-                                                            <label class="btn btn-sm btn-colorTols-red">
-                                                                <input type="radio" name="optionColor" id="TypeColor3" autocomplete="off">
-                                                            </label>
-                                                            <label class="btn btn-sm btn-colorTols-blueCCV">
-                                                                <input type="radio" name="optionColor" id="TypeColor4" autocomplete="off">&nbsp;
-                                                            </label>
+                                                        <h5>Elige un color</h5>
+                                                        <div class="btn btn-group btn-group-justified" role="group" data-toggle="buttons">
+                                                            <div class="btn-group" role="group">
+                                                                <button type="button" class="btn btn-lg btn-colorTols-orage active" id="TypeColorMobile1" onclick="personalizarColorGrafica('TypeColor1')">&nbsp</button>
+                                                            </div>
+                                                            <div class="btn-group" role="group">
+                                                                <button type="button" class="btn btn-lg btn-colorTols-verdeAzul" id="TypeColorMobile2" onclick="personalizarColorGrafica('TypeColor2')">&nbsp</button>
+                                                            </div>
+                                                            <div class="btn-group" role="group">
+                                                                <button type="button" class="btn btn-lg btn-colorTols-red" id="TypeColorMobile3" onclick="personalizarColorGrafica('TypeColor3')">&nbsp</button>
+                                                            </div>
+                                                            <div class="btn-group" role="group">
+                                                                <button type="button" class="btn btn-lg btn-colorTols-blueCCV" id="TypeColorMobile4" onclick="personalizarColorGrafica('TypeColor4')">&nbsp</button>
+                                                            </div>
                                                         </div>
-                                                    </div>
-                                                    <div class="col-md-12">
-                                                        <h5><span><img src="dist/img/step_4.png"></span> Pulsa para graficar</h5>
-                                                        <button type="button" class="btn btn-primary btn-sm btn-block" onclick="graficaPersonalizada()">Graficar</button>
                                                     </div>
                                                 </div>
                                             </div>
@@ -557,7 +553,7 @@
                     <div class="alert alert-danger" role="alert" id="AlertMessage">
                         <strong>Hubo un error en la consulta</strong>
                         <p>Intente recargar la página. Si el error continua contacte al soporte de CCV.
-                        <br>Teléfono: 3188000 EXT: 14140/1/2/3.</p>
+                            <br>Teléfono: 3188000 EXT: 14140/1/2/3.</p>
                     </div>
                     <button class="btn btn-danger btn-sm btn-block" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">Ver error técnico</button>
                     <div class="collapse" id="collapseExample">
@@ -577,7 +573,7 @@
                     <div class="alert alert-danger" role="alert" id="AlertMessage">
                         <strong>No se encontraron resultados</strong>
                         <p>El indicador que deseas consultar no existe, verifique si está bien escrito.
-                        <br>Te sugerimos hacer uso de los resultados recomendados en tiempo real, son más efectivos.</p>
+                            <br>Te sugerimos hacer uso de los resultados recomendados en tiempo real, son más efectivos.</p>
                     </div>
                 </div>
             </div>
