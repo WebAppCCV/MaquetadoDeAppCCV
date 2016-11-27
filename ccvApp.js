@@ -144,7 +144,7 @@ function getIndicador($id, $indicador, $fuente, $unidad, $tema) {
         arrayJson = [],
         itemActual = $('.sidebar-nav').find("a.active")[0];
 
-    if (itemActual === undefined) {
+    if (itemActual !== undefined) {
         $('#loading').hide(); //Si se realizo una consulta por la barra de búsqueda, no hay ítem de lista activo entonces se oculta la mascara de "Cargando"
     } else {
         itemActual = itemActual.id
@@ -203,7 +203,12 @@ function getIndicador($id, $indicador, $fuente, $unidad, $tema) {
                 indicador.valor = dato[indicador.id];
 
                 if (indicador.valor != "NaN") {
-                    dataIndicador.push(indicador.valor);
+                    var indicatorValue = Number(indicador.valor);
+                    if(indicatorValue % 1 != 0 && Math.floor(indicatorValue) == 0){
+                        indicatorValue = indicatorValue * 100;
+                    }
+                    indicatorValue = Number(indicatorValue.toFixed(2));
+                    dataIndicador.push(indicatorValue);
                     dataAnio.push(indicador.anio);
                     //Json sin valores nulos para la creación de la tabla
                     var objIndicador = new indicador(indicador.anio, indicador.valor);
@@ -211,7 +216,9 @@ function getIndicador($id, $indicador, $fuente, $unidad, $tema) {
                 }
             });
 
-            var dataNumberIndicador = dataIndicador.map(Number);
+            var dataNumberIndicador = dataIndicador;
+
+            //var dataNumberIndicador = dataIndicador.map(Number);
 
             //Se modifica el objeto global con la configuración que usará la gráfica del indicador.
             options.title.text = indicador.nombre;
